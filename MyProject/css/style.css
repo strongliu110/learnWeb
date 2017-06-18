@@ -1,0 +1,345 @@
+@charset "utf-8";
+
+ul,
+li,
+p,
+body {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	width: 1100px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.logo {
+	float: left;
+}
+
+.title {
+	float: right;
+}
+
+.title > * {
+	display: inline-block;
+}
+
+.header {
+	float: right;
+}
+
+.header ul {
+	list-style: none;
+	overflow: hidden;
+}
+
+.header ul li {
+	float: left;
+	width: 80px;
+	height: 40px;
+}
+
+.header ul li a {
+	text-align: center;
+	line-height: 40px;
+	margin: 0 auto;
+	display: block;
+	color: #3d3d3d;
+}
+
+.header ul li a:hover {
+	color: #ffffff;
+	background: #ff0000;
+}
+
+section {
+	clear: both;
+}
+
+.scroll {
+	background: #017ab2;
+}
+
+.scroll .pic {
+	width: 1100px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.pic .pic-title {
+	float: left;
+	padding: 20px;
+	z-index: 10;
+}
+
+.pic .pic-title > p:first-child {
+	font-size: 30px;
+	color: #b70003;
+}
+
+.pic .pic-title > p:last-child {
+	font-size: 60px;
+	color: #ffffff;
+}
+
+.pic .pic-title > p:last-child span {
+	font-size: 100px;
+}
+
+.pic img {
+	float: right;
+}
+
+.main {
+	width: 1100px;
+	margin: 0 auto;
+	clear: both;
+}
+
+.service,
+.case {
+	overflow: hidden;
+	border: dashed;
+}
+
+.service-title,
+.case-title {
+	margin: 30px auto 0;
+}
+
+.service-title > p,
+.case-title > p {
+	text-align: center;
+}
+
+.service-content,
+.case-content {
+	padding: 10px;
+}
+
+.service-content ul,
+.case-content ul {
+	overflow: hidden;
+	list-style: none;
+}
+
+.service-content ul li,
+.case-content ul li {
+	width: 250px;
+	float: left;
+	padding: 10px;
+	margin: 0 100px 30px 0;
+}
+
+.service-content ul li:first-child {
+	background: #7292fa;
+}
+
+.service-content ul .li-two {
+	background: #fde07d;
+}
+
+.service-content ul li:last-child,
+.case-content ul li:last-child {
+	margin: 0 0 30px 0;
+}
+
+.service-content ul li:last-child {
+	background: #fba96c;
+}
+
+.service-one,
+.case-one {
+	height: 300px;
+}
+
+.service-one > *,
+.case-one > * {
+	margin-bottom: 10px;
+}
+
+.service-one p:first-child {
+	text-align: center;
+}
+
+.case-one p:first-child {
+	text-align: left;
+}
+
+.service-one img,
+.case-one img {
+	display: block;
+	margin: 0 auto;
+}
+
+.service-one p:last-child,
+.case-one p:last-child {
+}
+
+.case-one a {
+	text-align: right;
+	display: block;
+}
+
+.new-job {
+	overflow: hidden;
+	border: dashed;
+	padding: 10px;
+}
+
+.new {
+	float: left;
+	width: 450px;
+}
+
+.new-title,
+.job-title,
+.customer-title {
+	overflow: hidden;
+}
+
+.new-title > p,
+.job-title > p,
+.customer-title > p {
+	float: left;
+}
+
+.new-title .more,
+.job-title .more,
+.customer-title .more {
+	float: right;
+}
+
+.new-content {
+	
+}
+
+.new-one {
+	overflow: hidden;
+}
+
+.new-one img {
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+
+.new-one .new-abstract {
+}
+
+.new-one .new-abstract a {
+	color: #3e3e3e; 
+}
+
+.new-hot ul li a {
+	color: #3e3e3e;
+}
+
+.job {
+	float: right;
+}
+
+.job-content {
+	
+}
+
+.customer {
+	overflow: hidden;
+	border: dashed;
+}
+
+.customer-content {
+	
+}
+
+.customer-content ul {
+	list-style: none;
+}
+
+.customer-content ul li {
+	float: left;
+}
+
+.customer-content ul li img {
+	display: block;
+}
+
+.customer-content ul li a {
+	display: block;
+	color: #3e3e3e;
+}
+
+.link {
+	
+}
+
+.link-name {
+	float: left;
+} 
+
+.link-content {
+	float: left;
+	overflow: hidden;
+}
+
+.link-content ul {
+	list-style: none;
+}
+
+.link-content ul li {
+	float: left;
+}
+
+footer {
+	clear: both;
+	background: #0059b5;
+	color: #ffffff;
+}
+
+.footer {
+	width: 1100px;
+	margin: 0 auto;
+}
+
+footer .header {
+	float: none;
+	text-align: center;
+	background: #002c5a;
+}
+
+footer .header ul {
+	display: inline-block; /*如何居中？*/
+}
+
+footer .header ul li a {
+	color: #ffffff;
+}
+
+.footer-content {
+	
+}
+
+.footer-content > p:first-child {
+	clear: both;
+}
+
+.sacn-contact {
+}
+
+.sacn-contact .scan {
+	float: left;
+}
+
+.footer-content > p:last-child {
+	clear: both;
+}
+
+
+
+
