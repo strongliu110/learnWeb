@@ -1,0 +1,198 @@
+@charset "utf-8";
+
+ul,
+li {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #191919;
+	text-decoration: none;
+}
+
+.wrapper-box {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.header {
+	/*border: 1px dashed;*/
+}
+
+.logo-search {
+	margin: 0 auto;
+}
+
+.logo-left {
+	float: left;
+	/*display: inline;*/
+	width: 160px;
+	height: 75px;
+	/*line-height: 500px;*/
+	overflow: hidden;
+	background: url(../img/sohu_logo.png) no-repeat 0 0;
+}
+
+.search {
+	float: left;
+	/*margin-left: 20px;*/
+	padding-left: 20px;
+	/*为何效果和margin一样，如何居中*/
+}
+
+/*为何a元素也居中了*/
+
+.search input {
+	width: 570px;
+	height: 40px;
+	font-size: 14px;
+	line-height: 40px;
+	display: inline-block;
+	box-sizing: border-box;
+	/*盒模型宽高计算规则变化*/
+}
+
+.nav {
+	border-top: 3px #fdd000 solid;
+	overflow: hidden;
+	/*为什么用这个可以清除浮动？*/
+	padding-top: 17px;
+	margin-top: 10px;
+	clear: both;
+}
+
+.nav .box {
+	float: left;
+	width: 150px;
+	border-left: 1px #efefef solid;
+	padding: 0 10px;
+}
+
+.nav .box ul {
+	height: 28px;
+	list-style: none;
+}
+
+.nav .box ul li {
+	float: left;
+	width: 50px;
+	line-height: 18px;
+}
+
+.god-mark {
+	margin: 15px auto 0;
+}
+
+.god-mark img {
+	margin: 0 auto;
+	display: block;
+	/*重要*/
+}
+
+.content {
+	margin: 10px auto;
+	border: 1px #EFEFEF solid;
+	overflow: hidden;
+}
+
+.main {
+	float: left;
+	width: 70%;
+	min-width: 810px;
+	display: inline;
+	/*为什么 float 需要？*/
+}
+
+.main-left {
+	float: left;
+	width: 320px;
+	/*border: 1px dashed;*/
+}
+
+.focus {
+	width: 320px;
+	height: 213px;
+}
+
+.pic-group {
+	/*clear: both;*/
+}
+
+.pic-group ul li {
+	width: 155px;
+	height: 103px;
+	margin: 2px;
+	float: left;
+	overflow: hidden;
+}
+
+.public-number {
+	margin: 15px 0;
+	/*padding: 15px 0;*/
+	clear: both;
+}
+
+.main-right {
+	float: right;
+	width: 480px;
+	/*border: 1px dashed;*/
+}
+
+.title {
+	height: 33px;
+	border-bottom: 1px #e5e5e5 solid;
+}
+
+.title a {
+	float: left;
+	line-height: 32px;
+	padding: 0 20px;
+	border-bottom: 2px #fdd000 solid;
+}
+
+.title em {
+	float: right;
+	line-height: 32px;
+	padding-right: 10px;
+}
+
+.list16 {
+	margin: 10px auto;
+	width: 460px;
+}
+
+.list16 ul {
+	list-style: none;
+}
+
+.list16 ul li {
+	line-height: 30px;
+	overflow: hidden;
+}
+
+.sidebar {
+	float: right;
+}
+
+.video {
+	padding: 20px;
+}
+
+.video a {
+	display: block;
+	margin-bottom: 20px;
+	/*padding-bottom: 20px;*/
+}
+
+.footer {
+	clear: both;
+	/*margin: 0 auto;*/
+	/*width: 500px;*/
+}
+
+.footer span {
+	text-align: center;
+	display: block;
+}
