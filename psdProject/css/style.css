@@ -13,8 +13,9 @@ a {
 }
 
 header {
-	width: 1100px;
-	margin: 0 auto;
+	width: 1000px;
+	height: 70px;
+	margin: 15px auto 0;
 	overflow: hidden;
 }
 
@@ -24,10 +25,26 @@ header {
 
 .title {
 	float: right;
+	font-size: 12px;
+	padding-bottom: 8px;
 }
 
 .title > * {
 	display: inline-block;
+}
+
+.title span,
+.title a {
+	color: #909090;
+} 
+
+.phone {
+	padding-left: 10px;
+}
+
+.phone strong {
+	color: #ff2020;
+	font-size: 16px;
 }
 
 .header {
@@ -47,6 +64,7 @@ header {
 
 .header ul li a {
 	text-align: center;
+	font-size: 14px;
 	line-height: 40px;
 	margin: 0 auto;
 	display: block;
@@ -67,7 +85,7 @@ section {
 }
 
 .scroll .pic {
-	width: 1100px;
+	width: 1000px;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -78,17 +96,17 @@ section {
 	z-index: 10;
 }
 
-.pic .pic-title > p:first-child {
+.pic-title > p:first-child {
 	font-size: 30px;
 	color: #b70003;
 }
 
-.pic .pic-title > p:last-child {
+.pic-title > p:last-child {
 	font-size: 60px;
 	color: #ffffff;
 }
 
-.pic .pic-title > p:last-child span {
+.pic-title > p:last-child span {
 	font-size: 100px;
 }
 
@@ -97,7 +115,7 @@ section {
 }
 
 .main {
-	width: 1100px;
+	width: 1000px;
 	margin: 0 auto;
 	clear: both;
 }
@@ -105,22 +123,27 @@ section {
 .service,
 .case {
 	overflow: hidden;
-	border: dashed;
 }
 
 .service-title,
 .case-title {
-	margin: 30px auto 0;
+	margin: 25px auto 30px;
 }
 
 .service-title > p,
 .case-title > p {
 	text-align: center;
+	font-size: 24px;
+}
+
+.service-title > p:last-child,
+.case-title > p:last-child {
+	color: #c4c4c4;
 }
 
 .service-content,
 .case-content {
-	padding: 10px;
+	padding: 0;
 }
 
 .service-content ul,
@@ -129,12 +152,23 @@ section {
 	list-style: none;
 }
 
-.service-content ul li,
-.case-content ul li {
+.service-content ul li {
 	width: 250px;
+	height: 312px;
 	float: left;
 	padding: 10px;
-	margin: 0 100px 30px 0;
+	margin: 0 95px 0 0;
+	border-radius: 10px;
+}
+
+.case-content ul li {
+	height: 388px;
+	float: left;
+	padding: 10px;
+	/*border: 1px #b3b3b3 solid;*/
+	box-shadow: 1px 1px 2px 2px #b3b3b3;
+	/*outline: #b3b3b3 solid 1px;*/
+	margin: 0 50px 0 0;
 }
 
 .service-content ul li:first-child {
@@ -156,12 +190,16 @@ section {
 
 .service-one,
 .case-one {
-	height: 300px;
+	float: left;
+}
+
+.case-one {
+	width: 278px;
 }
 
 .service-one > *,
 .case-one > * {
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 }
 
 .service-one p:first-child {
@@ -170,27 +208,36 @@ section {
 
 .case-one p:first-child {
 	text-align: left;
+	margin: 0;
+	padding: 0;
+	color: #64b9fa;
+	border-bottom: #c2c8cd;
 }
 
 .service-one img,
 .case-one img {
 	display: block;
 	margin: 0 auto;
+	padding: 22px 0;
 }
 
 .service-one p:last-child,
 .case-one p:last-child {
 }
 
-.case-one a {
+.case-one a,
+.customer-more a,
+.more a {
 	text-align: right;
 	display: block;
+	border-radius: 5px;
+	color: #FFFFFF;
+	background-color: #64b9fa;
+	padding: 0 5px;
 }
 
 .new-job {
 	overflow: hidden;
-	border: dashed;
-	padding: 10px;
 }
 
 .new {
@@ -208,6 +255,13 @@ section {
 .job-title > p,
 .customer-title > p {
 	float: left;
+	font-size: 18px;
+}
+
+.new-title > p span,
+.job-title > p span,
+.customer-title > p span {
+	color: #ff4a4a;
 }
 
 .new-title .more,
@@ -222,12 +276,13 @@ section {
 
 .new-one {
 	overflow: hidden;
+	padding: 32px 0 16px;
+	border-bottom: 1px #8d8d8d solid;
 }
 
 .new-one img {
 	float: left;
-	width: 50px;
-	height: 50px;
+	padding-right: 20px;
 }
 
 .new-one .new-abstract {
@@ -235,6 +290,13 @@ section {
 
 .new-one .new-abstract a {
 	color: #3e3e3e; 
+}
+
+.new-hot ul {
+}
+
+.new-hot ul li {
+	height: 30px;
 }
 
 .new-hot ul li a {
@@ -246,16 +308,18 @@ section {
 }
 
 .job-content {
-	
+	padding: 32px 0 16px;
+	width: 450px;
+	height: 330px;
 }
 
 .customer {
 	overflow: hidden;
-	border: dashed;
 }
 
 .customer-content {
-	
+	padding-top: 40px;
+	overflow: hidden;
 }
 
 .customer-content ul {
@@ -264,23 +328,35 @@ section {
 
 .customer-content ul li {
 	float: left;
+	padding-right: 20px;
+}
+
+.customer-content ul .customer-last {
+	padding-right: 0px;
 }
 
 .customer-content ul li img {
-	display: block;
+	width: 184px;
+	height: 106px;
+	box-shadow: 1px 1px 2px 2px #b3b3b3;
+	/*outline: #b3b3b3 solid 1px;*/
 }
 
 .customer-content ul li a {
 	display: block;
+	padding: 22px 0;
+	font-size: 12px;
 	color: #3e3e3e;
 }
 
 .link {
-	
+	padding: 5px;
+	overflow: hidden;
 }
 
 .link-name {
 	float: left;
+	color: #ff0000;
 } 
 
 .link-content {
@@ -294,6 +370,15 @@ section {
 
 .link-content ul li {
 	float: left;
+	padding: 0 20px;
+}
+
+.link-content ul li {
+	border-right: 1px #000000 solid;
+}
+
+.link-content ul li:last-child {
+	border-right: none;
 }
 
 footer {
@@ -303,7 +388,7 @@ footer {
 }
 
 .footer {
-	width: 1100px;
+	width: 1000px;
 	margin: 0 auto;
 }
 
@@ -317,27 +402,50 @@ footer .header ul {
 	display: inline-block; /*如何居中？*/
 }
 
+footer .header ul li {
+	padding: 0 10px;
+}
+
 footer .header ul li a {
 	color: #ffffff;
 }
 
 .footer-content {
-	
 }
 
 .footer-content > p:first-child {
 	clear: both;
+	padding: 22px 5px;
 }
 
 .sacn-contact {
+	overflow: hidden;
 }
 
-.sacn-contact .scan {
+.scan {
 	float: left;
+	padding: 0 92px 0 226px ;
+}
+
+.scan p {
+	text-align: center;
+}
+
+.contact {
+	float: left;
+	background: #003e7e;
+	width: 292px;
+	height: 132px;
+}
+
+.contact img {
+	/*如何居中*/
 }
 
 .footer-content > p:last-child {
 	clear: both;
+	text-align: center;
+	padding: 22px 0;
 }
 
 
