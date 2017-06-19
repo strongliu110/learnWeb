@@ -199,7 +199,11 @@ section {
 
 .service-one > *,
 .case-one > * {
-	/*margin-bottom: 10px;*/
+	margin-bottom: 10px;
+}
+
+.case-one > a {
+	margin-top: 36px;
 }
 
 .service-one p:first-child {
@@ -238,6 +242,7 @@ section {
 
 .new-job {
 	overflow: hidden;
+	padding-bottom: 10px;
 }
 
 .new {
@@ -292,7 +297,13 @@ section {
 	color: #3e3e3e; 
 }
 
+.new-hot {
+	padding: 10px 0;
+}
+
 .new-hot ul {
+	list-style-type: square;
+	margin-left: 20px;
 }
 
 .new-hot ul li {
@@ -311,6 +322,17 @@ section {
 	padding: 32px 0 16px;
 	width: 450px;
 	height: 330px;
+}
+
+.job-content tr {
+	background: #f0f0f0;
+	height: 32px;
+}
+
+.job-content td {
+	background: #fafafa;
+	width: 120px;
+	text-align: center;
 }
 
 .customer {
