@@ -81,37 +81,39 @@ section {
 }
 
 .scroll {
-	background: #017ab2;
+	/* 注意url路径是相对于当前文件而言*/
+	background: #017ab2 url(../img/psd21230_0001s_0005_图层-36.png) no-repeat 500px;
+	border-top: 5px #0059b5 solid;
 }
 
 .scroll .pic {
 	width: 1000px;
+	height: 400px;
 	margin: 0 auto;
-	overflow: hidden;
 }
 
 .pic .pic-title {
-	float: left;
-	padding: 20px;
-	z-index: 10;
+	position: relative;
+	top: 135px;
+	z-index: 1;
 }
 
 .pic-title > p:first-child {
 	font-size: 30px;
 	color: #b70003;
+	position: absolute;
+	left: 17px;
 }
 
 .pic-title > p:last-child {
 	font-size: 60px;
 	color: #ffffff;
+	position: absolute;
+	left: 40px;
 }
 
 .pic-title > p:last-child span {
 	font-size: 100px;
-}
-
-.pic img {
-	float: right;
 }
 
 .main {
@@ -226,14 +228,14 @@ section {
 }
 
 .service-one p:last-child,
+.customer-more p:last-child,
 .case-one p:last-child {
+	text-align: right;
 }
 
-.case-one a,
-.customer-more a,
-.more a {
-	text-align: right;
-	display: block;
+.case-one p:last-child a,
+.customer-more p:last-child a,
+.more p:last-child a {
 	border-radius: 5px;
 	color: #FFFFFF;
 	background-color: #64b9fa;
@@ -295,6 +297,15 @@ section {
 
 .new-one .new-abstract a {
 	color: #3e3e3e; 
+	padding-bottom: 5px; /*没有效果？*/
+}
+
+.new-one .new-abstract p {
+	/*line-height: 25px;*/
+	height: 100px;
+	overflow: hidden; 
+    text-overflow: ellipsis; /*溢出显示省略号，没有效果？*/
+   	/*white-space: nowrap;*/
 }
 
 .new-hot {
