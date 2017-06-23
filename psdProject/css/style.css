@@ -33,6 +33,11 @@ header {
 	display: inline-block;
 }
 
+.set img,
+.collect img {
+	vertical-align: middle;
+}
+
 .title span,
 .title a {
 	color: #909090;
@@ -298,11 +303,12 @@ section {
 
 .new-one .new-abstract a {
 	color: #3e3e3e; 
-	padding-bottom: 5px; /*没有效果？*/
+	padding-bottom: 5px;
+	display: inline-block;
 }
 
 .new-one .new-abstract p {
-	/*line-height: 25px;*/
+	line-height: 25px;
 	height: 100px;
 	overflow: hidden; 
     text-overflow: ellipsis; /*溢出显示省略号，没有效果？*/
