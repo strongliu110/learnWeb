@@ -76,7 +76,7 @@ header {
 	color: #3d3d3d;
 }
 
-/*.header ul li a:hover,*/
+.header ul li a:hover,
 .header ul li a.focus {
 	color: #ffffff;
 	background: #ff0000;
@@ -120,6 +120,34 @@ section {
 
 .pic-title > p:last-child span {
 	font-size: 100px;
+}
+
+.carousel {
+	background: black;
+	text-align: center;
+}
+
+.carousel ul {
+	list-style: none;
+	overflow: hidden;
+	cursor: pointer;
+	background: blue;
+	display: inline-block;
+	height: 25px;
+    vertical-align: middle;
+}
+
+.carousel ul li {
+	float: left;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	color: white;
+}
+
+.carousel ul li:hover,
+.carousel ul li:focus {
+	color: red;
 }
 
 .main {
@@ -439,7 +467,7 @@ footer .header {
 }
 
 footer .header ul {
-	display: inline-block; /*如何居中？*/
+	display: inline-block;
 }
 
 footer .header ul li {
@@ -487,7 +515,3 @@ footer .header ul li a {
 	text-align: center;
 	padding: 22px 0;
 }
-
-
-
-

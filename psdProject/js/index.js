@@ -56,3 +56,7 @@
 	index.click();
 	
 })();
+
+(function() {
+	var imgArray = [];	
+})();
