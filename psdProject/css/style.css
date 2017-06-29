@@ -88,13 +88,13 @@ section {
 
 .scroll {
 	/* 注意url路径是相对于当前文件而言*/
-	background: #017ab2 url(../img/psd21230_0001s_0005_图层-36.png) no-repeat 500px;
+	background: #017ab2 url(../img/psd21230_0001s_0005_图层-36.png) no-repeat 100% 100%;
 	border-top: 5px #0059b5 solid;
 }
 
 .scroll .pic {
 	width: 1000px;
-	height: 400px;
+	height: 375px;
 	margin: 0 auto;
 }
 
@@ -123,7 +123,6 @@ section {
 }
 
 .carousel {
-	background: black;
 	text-align: center;
 }
 
@@ -131,9 +130,7 @@ section {
 	list-style: none;
 	overflow: hidden;
 	cursor: pointer;
-	background: blue;
 	display: inline-block;
-	height: 25px;
     vertical-align: middle;
 }
 
@@ -143,6 +140,7 @@ section {
 	height: 20px;
 	text-align: center;
 	color: white;
+	margin: 5px;
 }
 
 .carousel ul li:hover,

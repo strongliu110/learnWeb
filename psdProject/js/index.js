@@ -5,7 +5,7 @@
 
 	for(var i = 0; i < lis.length; i++) {
 		var a = lis[i].getElementsByTagName("a")[0];
-		
+
 		/* 方法1 */
 		a.onclick = function() {
 			(function() {
@@ -22,41 +22,74 @@
 		};
 
 		/* 方法2 */
-//		(function(a) {
-//			a.onclick = function() {
-//				(function() {
-//					for(var i = 0; i < lis.length; i++) {
-//						var a = lis[i].getElementsByTagName("a")[0];
-//						a.className = "";
-//					}
-//				})();
-//
-//				a.className = "focus";
-//			};
-//		})(a);
+		//		(function(a) {
+		//			a.onclick = function() {
+		//				(function() {
+		//					for(var i = 0; i < lis.length; i++) {
+		//						var a = lis[i].getElementsByTagName("a")[0];
+		//						a.className = "";
+		//					}
+		//				})();
+		//
+		//				a.className = "focus";
+		//			};
+		//		})(a);
 
 		/* 方法3 */
-//		a.onclick = function(a) {
-//			return function() {
-//				(function() {
-//					for(var i = 0; i < lis.length; i++) {
-//						var a = lis[i].getElementsByTagName("a")[0];
-//						a.className = "";
-//					}
-//				})();
-//
-//				a.className = "focus";
-//			}
-//		}(a);
+		//		a.onclick = function(a) {
+		//			return function() {
+		//				(function() {
+		//					for(var i = 0; i < lis.length; i++) {
+		//						var a = lis[i].getElementsByTagName("a")[0];
+		//						a.className = "";
+		//					}
+		//				})();
+		//
+		//				a.className = "focus";
+		//			}
+		//		}(a);
 
 	};
 
 	// 默认选中首页
 	var index = lis[0].getElementsByTagName("a")[0];
 	index.click();
-	
+
 })();
 
 (function() {
-	var imgArray = [];	
+	var carouselArray = ["url(img/psd21230_0001s_0009_图层-8.png)", "url(img/psd21230_0001s_0005_图层-36.png)", "url(img/psd21230_0001s_0009_图层-8.png"];
+	var scroll = document.getElementsByClassName("scroll")[0];
+	var carouse = document.getElementsByClassName("carousel")[0];
+	var ul = carouse.getElementsByTagName("ul")[0];
+	var lis = ul.getElementsByTagName("li");
+
+	var imgId = 1;
+	scroll.style.backgroundImage = carouselArray[imgId];
+	lis[imgId].style.color = "red";
+
+	var manager = {
+		init: function() {
+			self = this;
+			setInterval(function() {
+				self.carousel();
+			}, 3000);
+		},
+
+		carousel: function() {
+			for(var i = 0; i < lis.length; i++) {
+				lis[i].style.color = "white";
+			}
+
+			imgId++;
+			scroll.style.backgroundImage = carouselArray[imgId];
+			lis[imgId].style.color = "red";
+
+			if(imgId >= 2) {
+				imgId = -1;
+			}
+		}
+	};
+	manager.init();
+	
 })();
