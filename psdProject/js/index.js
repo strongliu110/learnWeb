@@ -68,28 +68,46 @@
 	scroll.style.backgroundImage = carouselArray[imgId];
 	lis[imgId].style.color = "red";
 
-	var manager = {
-		init: function() {
-			self = this;
-			setInterval(function() {
-				self.carousel();
-			}, 3000);
-		},
-
-		carousel: function() {
-			for(var i = 0; i < lis.length; i++) {
-				lis[i].style.color = "white";
-			}
-
-			imgId++;
-			scroll.style.backgroundImage = carouselArray[imgId];
-			lis[imgId].style.color = "red";
-
-			if(imgId >= 2) {
-				imgId = -1;
-			}
+	// 方法1
+//	var manager = {
+//		init: function() {
+//			self = this;
+//			setInterval(function() {
+//				self.carousel();
+//			}, 3000);
+//		},
+//
+//		carousel: function() {
+//			for(var i = 0; i < lis.length; i++) {
+//				lis[i].style.color = "white";
+//			}
+//
+//			imgId++;
+//			scroll.style.backgroundImage = carouselArray[imgId];
+//			lis[imgId].style.color = "red";
+//
+//			if(imgId >= 2) {
+//				imgId = -1;
+//			}
+//		}
+//	};
+//	manager.init();
+	
+	// 方法2
+	function carousel() {
+		for(var i = 0; i < lis.length; i++) {
+			lis[i].style.color = "white";
 		}
-	};
-	manager.init();
+
+		imgId++;
+		scroll.style.backgroundImage = carouselArray[imgId];
+		lis[imgId].style.color = "red";
+
+		if(imgId >= 2) {
+			imgId = -1;
+		}
+	}
+
+	setInterval(carousel, 3000);
 	
 })();
