@@ -1,0 +1,61 @@
+@media only screen and (min-width:1000px) {
+	
+	ul,
+	li,
+	p,
+	body {
+		padding: 0;
+		margin: 0;
+	}
+
+
+	a {
+		text-decoration: none;
+	}
+	
+	.header {
+		width: 750px;
+		margin: 0 auto;
+		/*background-color: red;*/
+		overflow: hidden;
+	}
+	
+	.logo {
+		width: 180px;
+		height: 50px;
+		float: left;
+	}
+	
+	.logo img {
+		width: 100%;
+	}
+	
+	.nav {
+		background-color: #333;
+	}
+	
+	.navbar {
+		margin: 0 auto;
+		width: 938px;
+		padding: 0 15px;
+		overflow: hidden;
+	}
+	
+	.navbar ul {
+		float: left;
+		list-style: none;
+		overflow: hidden;
+	}
+	
+	.navbar ul li {
+		float: left;
+		padding: 15px 20px;
+	}
+	
+	.navbar ul li a {
+		line-height: 20px;
+    		font-size: 18px;
+    		color: #fff;
+	}
+	
+}
