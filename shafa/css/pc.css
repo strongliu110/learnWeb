@@ -14,20 +14,57 @@
 	}
 	
 	.header {
-		width: 750px;
-		margin: 0 auto;
-		/*background-color: red;*/
+		width: 970px;
+		margin: 13.5px auto;
 		overflow: hidden;
+		padding: 7.5px;
 	}
 	
 	.logo {
-		width: 180px;
-		height: 50px;
 		float: left;
 	}
 	
-	.logo img {
-		width: 100%;
+	.logo a {
+		display: block;
+
+	}
+	
+	.logo a img {
+		width: 180px;
+		vertical-align: middle;
+	}
+	
+	.header-right {
+		float: right;
+	}
+	
+	.header-right .search {
+		float: left;
+		margin-right: 40px;
+	}
+	
+	.search input {
+		width: 180px;
+    		height: 30px;
+	}
+	
+	.search button {
+		background-color: #f93;
+		border: 1px solid transparent;
+		width: 45px;
+		height: 30px;
+	}
+	
+	.header-right .login {
+		float: right;
+	}
+	
+	.login a {
+		color: #333;
+	}
+	
+	.login span {
+		margin: 0 10px;
 	}
 	
 	.nav {
@@ -49,13 +86,20 @@
 	
 	.navbar ul li {
 		float: left;
-		padding: 15px 20px;
 	}
 	
 	.navbar ul li a {
 		line-height: 20px;
     		font-size: 18px;
     		color: #fff;
+    		padding: 15px 20px;
+    		display: block;
+	}
+	
+	.navbar ul li a:hover,
+	.navbar ul li a:focus {
+		color: #ff8000;
+    		background-color: #000;
 	}
 	
 }
