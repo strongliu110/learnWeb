@@ -40,8 +40,14 @@
 
 .market-cell a {
 	display: block;
+	cursor: pointer;
 	/*width: 100px;*/
 	/*margin: 0 auto;*/
+}
+
+.market-cell a:hover,
+.market-cell a:hover h2 {
+	color: #00c1de;
 }
 
 .market-cell a h2 {

@@ -11,7 +11,8 @@
 }
 
 .all-project-title h1,
-.all-market-title h1 {
+.all-market-title h1,
+.community-title h1 {
 	text-align: center;
     font-size: 24px;
     color: #373d41;
@@ -20,7 +21,8 @@
 }
 
 .all-project-title a,
-.all-market-title a {
+.all-market-title a,
+.community-title a {
 	text-align: center;
     font-size: 16px;
     margin: 8px 0 42px;
@@ -29,7 +31,8 @@
 }
 
 .all-project-title a:hover,
-.all-market-title a:hover {
+.all-market-title a:hover,
+.community-title a:hover {
 	color: #00c1de;
 }
 
