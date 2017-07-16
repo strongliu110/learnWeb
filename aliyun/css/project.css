@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+.all-project {
+	clear: both;
+}
+
+.all-project-title img {
+	display: block;
+    width: 130px;
+    margin: 32px auto 24px;
+}
+
+.all-project-title h1,
+.all-market-title h1 {
+	text-align: center;
+    font-size: 24px;
+    color: #373d41;
+    line-height: 36px;
+    font-weight: 500;
+}
+
+.all-project-title a,
+.all-market-title a {
+	text-align: center;
+    font-size: 16px;
+    margin: 8px 0 42px;
+    display: block;
+    color: #373d41;
+}
+
+.all-project-title a:hover,
+.all-market-title a:hover {
+	color: #00c1de;
+}
+
+.all-product-tabs ul {
+	text-align: center;
+    width: 1200px;
+    margin: 0 auto;
+	overflow: hidden;
+	list-style: none;
+}
+
+.all-product-tabs ul li {
+	float: left;
+    padding: 15px 39px;
+    width: 156px;
+}
+
+.all-product-tabs ul li a {
+	display: block;
+    color: #373d41;
+}
+
+.all-product-tabs ul li a:hover {
+	color: #00c1de;
+}
+
+.all-product-tabs ul li a img {
+	width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.all-product-tabs ul li h2 {
+	font-size: 14px;
+}
+
+.all-product-show-more {
+	width: 120px;
+    height: 36px;
+    line-height: 36px;
+    margin: 35px auto 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #373d41;
+    border: 1px solid #373d41;
+    cursor: pointer;
+}
+
+.all-product-show-more:hover {
+	color: #00c1de;
+    border: 1px solid #00c1de;
+}
