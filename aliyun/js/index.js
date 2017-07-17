@@ -15,3 +15,5 @@ $(".product-show-more").on("click", function() {
 		height: "toggle"
 	}, 300, "linear");
 });
+
+$(".common-topbar-nav-list").children(".line") 

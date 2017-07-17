@@ -198,6 +198,16 @@
 	float: left;
 }
 
+.common-topbar-nav-list .line {
+	position: absolute;
+    width: 0;
+    height: 3px;
+    left: 115px;
+    bottom: 0;
+    background: #00c1de;
+    transition: width .3s cubic-bezier(.4,0,.2,1);
+}
+
 .common-topbar-register {
 	float: right;
 	height: 60px;
