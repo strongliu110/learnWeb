@@ -1,16 +1,16 @@
 @charset "utf-8";
 
-.all-project {
+.project {
 	clear: both;
 }
 
-.all-project-title img {
+.project-title img {
 	display: block;
     width: 130px;
     margin: 32px auto 24px;
 }
 
-.all-project-title h1,
+.project-title h1,
 .all-market-title h1,
 .community-title h1 {
 	text-align: center;
@@ -20,7 +20,7 @@
     font-weight: 500;
 }
 
-.all-project-title a,
+.project-title a,
 .all-market-title a,
 .community-title a {
 	text-align: center;
@@ -30,13 +30,13 @@
     color: #373d41;
 }
 
-.all-project-title a:hover,
+.project-title a:hover,
 .all-market-title a:hover,
 .community-title a:hover {
 	color: #00c1de;
 }
 
-.all-product-tabs ul {
+.product-tabs ul {
 	text-align: center;
     width: 1200px;
     margin: 0 auto;
@@ -44,32 +44,36 @@
 	list-style: none;
 }
 
-.all-product-tabs ul li {
+.product-tabs ul li {
 	float: left;
     padding: 15px 39px;
     width: 156px;
 }
 
-.all-product-tabs ul li a {
+.product-tabs ul li a {
 	display: block;
     color: #373d41;
 }
 
-.all-product-tabs ul li a:hover {
+.product-tabs ul li a:hover {
 	color: #00c1de;
 }
 
-.all-product-tabs ul li a img {
+.product-tabs ul li a img {
 	width: 80px;
     height: 80px;
     margin: 0 auto;
 }
 
-.all-product-tabs ul li h2 {
+.product-tabs ul li h2 {
 	font-size: 14px;
 }
 
-.all-product-show-more {
+.project-more {
+	display: none;
+}
+
+.product-show-more {
 	width: 120px;
     height: 36px;
     line-height: 36px;
@@ -81,7 +85,7 @@
     cursor: pointer;
 }
 
-.all-product-show-more:hover {
+.product-show-more:hover {
 	color: #00c1de;
     border: 1px solid #00c1de;
 }

@@ -13,11 +13,14 @@
 		<link rel="stylesheet" href="css/project.css" />
 		<link rel="stylesheet" href="css/market.css" />
 		<link rel="stylesheet" href="css/community.css" />
+
+		<script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+		<script type="text/javascript" src="js/index.js" async></script>
 	</head>
 
 	<body>
 		<div class="banner-ad-wrapper">
-			<i class="fa fa-close"></i>
+			<i class="fa fa-close icon-wrong-thin"></i>
 			<div class="banner-top-content">
 				<a href="https://yunqi.aliyun.com/" target="_blank">
 					<img src="https://img.alicdn.com/tfs/TB1fTMCSXXXXXX4apXXXXXXXXXX-2880-120.jpg" alt="" />
@@ -26,76 +29,89 @@
 		</div>
 
 		<div class="index-menu">
-			<div class="common-topbar-top">
-				<a class="common-topbar-logo" href="https://www.aliyun.com/">
-					<img src="https://img.alicdn.com/tps/TB16hl5LpXXXXXRXVXXXXXXXXXX-198-46.png">
-					<img src="https://img.alicdn.com/tps/TB1BQh7LpXXXXcJXFXXXXXXXXXX-198-46.gif">
-				</a>
-				<div class="common-topbar-menu">
-					<ul>
-						<li>
-							<a href="//home.console.aliyun.com/" target="_blank">控制台</a>
-						</li>
-						<li>
-							<a href="//beian.aliyun.com/" target="_blank">备案</a>
-						</li>
-						<li>
-							<a href="//mail.aliyun.com/" target="_blank">邮箱</a>
-						</li>
-						<li>
-							<a href="javascript:;">登录</a>
-						</li>
-					</ul>
+			<div class="common-topbar">
+				<div class="common-topbar-top">
+					<a class="common-topbar-logo" href="https://www.aliyun.com/">
+						<img src="https://img.alicdn.com/tps/TB16hl5LpXXXXXRXVXXXXXXXXXX-198-46.png">
+						<img src="https://img.alicdn.com/tps/TB1BQh7LpXXXXcJXFXXXXXXXXXX-198-46.gif">
+					</a>
+					<div class="common-topbar-menu">
+						<ul>
+							<li>
+								<a href="//home.console.aliyun.com/" target="_blank">控制台</a>
+							</li>
+							<li>
+								<a href="//beian.aliyun.com/" target="_blank">备案</a>
+							</li>
+							<li>
+								<a href="//mail.aliyun.com/" target="_blank">邮箱</a>
+							</li>
+							<li>
+								<a href="javascript:;">登录</a>
+							</li>
+						</ul>
+					</div>
+					<div class="common-topbar-site-switch">
+						<img src="//img.alicdn.com/tfs/TB18R7RRpXXXXabapXXXXXXXXXX-32-32.png"> 中国站&nbsp;
+						<i class="fa fa-angle-down"></i>
+						<i class="fa fa-angle-up"></i>
+						<div class="topbar-site-switch-dropdown">
+							<ul>
+								<li>
+									<a href="javascript:void(0)" target="_blank">中国站</a>
+								</li>
+								<li>
+									<a href="https://www.alibabacloud.com" target="_blank">International</a>
+								</li>
+								<li>
+									<a href="https://jp.aliyun.com" target="_blank">日本サイト</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="common-topbar-search">
+						<i class="fa fa-search" href="javascript:;"></i>
+						<!--<input placeholder="数据可视化" name="k" autocomplete="OFF">-->
+					</div>
 				</div>
-				<div class="common-topbar-site-switch">
-					<img src="//img.alicdn.com/tfs/TB18R7RRpXXXXabapXXXXXXXXXX-32-32.png"> 中国站&nbsp;
-					<i class="fa fa-angle-down"></i>
-					<!--<i class="fa fa-angle-up"></i>-->
-					<!--<ul class="topbar-site-switch-dropdown">
-						<li class="current">
-							<a href="javascript:void(0)" target="_blank">中国站</a>
-						</li>
-						<li choice="INTL">
-							<a href="https://www.alibabacloud.com" target="_blank">International</a>
-						</li>
-						<li choice="JP">
-							<a href="https://jp.aliyun.com" target="_blank">日本サイト</a>
-						</li>
-					</ul>-->
-				</div>
-				<div class="common-topbar-search">
-					<i class="fa fa-search" href="javascript:;"></i>
-					<!--<input placeholder="数据可视化" name="k" autocomplete="OFF">-->
-				</div>
-			</div>
-			<div class="common-topbar-bottom">
-				<div class="all-nav">
-					<i class="fa fa-list"></i>全部导航
-				</div>
-				<div class="common-topbar-nav-list">
-					<ul>
-						<li>
-							<a href="https://www.aliyun.com/solution/all" target="_blank">解决方案</a>
-						</li>
-						<li>
-							<a href="https://data.aliyun.com/" target="_blank">数据 · 智能</a>
-						</li>
-						<li>
-							<a href="https://security.aliyun.com/" target="_blank">安全</a>
-						</li>
-						<li>
-							<a href="https://market.aliyun.com/" target="_blank">云市场</a>
-						</li>
-						<li>
-							<a href="https://www.aliyun.com/support" target="_blank">支持</a>
-						</li>
-						<li>
-							<a href="https://partner.aliyun.com/" target="_blank">合作伙伴</a>
-						</li>
-					</ul>
-				</div>
-				<div class="common-topbar-register">
-					<a>免费注册</a>
+				<div class="common-topbar-bottom">
+					<div class="all-nav">
+						<i class="fa fa-list"></i>全部导航
+					</div>
+					<div class="common-topbar-nav-list">
+						<ul>
+							<li>
+								<a href="https://www.aliyun.com/activity?#/promotionArea" target="_blank">最新活动</a>
+
+								<img src="//img.alicdn.com/tps/TB16iSzLpXXXXXjapXXXXXXXXXX-48-32.png">
+							</li>
+							<li>
+								<a href="javascript:void(0)">产品</a>
+							</li>
+							<li>
+								<a href="https://www.aliyun.com/solution/all" target="_blank">解决方案</a>
+							</li>
+							<li>
+								<a href="https://data.aliyun.com/" target="_blank">数据 · 智能</a>
+							</li>
+							<li>
+								<a href="https://security.aliyun.com/" target="_blank">安全</a>
+							</li>
+							<li>
+								<a href="https://market.aliyun.com/" target="_blank">云市场</a>
+							</li>
+							<li>
+								<a href="https://www.aliyun.com/support" target="_blank">支持</a>
+							</li>
+							<li>
+								<a href="https://partner.aliyun.com/" target="_blank">合作伙伴</a>
+							</li>
+							<div class="line" style="width: 0px; left: 0px;"></div>
+						</ul>
+					</div>
+					<div class="common-topbar-register">
+						<a>免费注册</a>
+					</div>
 				</div>
 			</div>
 			<div class="index-top-bananer">
@@ -170,16 +186,16 @@
 			</div>
 		</div>
 
-		<div class="all-project">
-			<div class="all-project-title">
+		<div class="project">
+			<div class="project-title">
 				<img src="https://img.alicdn.com/tfs/TB1EGNRRVXXXXazXVXXXXXXXXXX-271-123.png">
 				<h1>全球领先、安全、稳定的云计算产品</h1>
 				<a target="_blank" href="https://www.aliyun.com/about/global?spm=5176.8142029.735711.1.nWpK65">
 					计算、存储、网络、安全、大数据、人工智能，普惠科技助您飞跃发展
 				</a>
 			</div>
-			<div class="all-project-layer">
-				<div class="all-product-tabs">
+			<div class="project-layer">
+				<div class="product-tabs">
 					<ul>
 						<li>
 							<a href="#txjs">
@@ -214,7 +230,7 @@
 						<div class="indicator-triangle" style="left: 107px;"></div>
 					</ul>
 				</div>
-				<div class="all-product-tabs">
+				<div class="product-tabs">
 					<ul>
 						<li>
 							<a href="#txjs">
@@ -249,7 +265,7 @@
 						<div class="indicator-triangle" style="left: 107px;"></div>
 					</ul>
 				</div>
-				<div class="all-product-tabs">
+				<div class="product-tabs">
 					<ul>
 						<li>
 							<a href="#txjs">
@@ -284,7 +300,31 @@
 						<div class="indicator-triangle" style="left: 107px;"></div>
 					</ul>
 				</div>
-				<div class="all-product-show-more">查看全部</div>
+				<div class="product-tabs project-more">
+					<ul>
+						<li>
+							<a href="#ggg4">
+								<img src="https://img.alicdn.com/tfs/TB1zCFIQVXXXXcKXVXXXXXXXXXX-160-160.png" />
+								<h2>管理与监控</h2>
+							</a>
+						</li>
+						<li>
+							<a href="#zjj2">
+								<img src="https://img.alicdn.com/tfs/TB1GBxKQVXXXXXTaXXXXXXXXXXX-160-160.png" />
+								<h2>中间件</h2>
+							</a>
+						</li>
+
+						<li class="ali-product-tab">
+							<a href="#bbb3">
+								<img src="https://img.alicdn.com/tfs/TB1NACtQVXXXXXlXpXXXXXXXXXX-160-160.png" />
+								<h2>专有云</h2>
+							</a>
+						</li>
+						<div class="indicator-triangle"></div>
+					</ul>
+				</div>
+				<div class="product-show-more">查看全部</div>
 			</div>
 		</div>
 
