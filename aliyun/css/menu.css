@@ -12,8 +12,9 @@
 }
 
 .common-topbar {
-	border-bottom: 1px solid hsla(0,0%,100%,.15);
+	border-bottom: 1px solid hsla(0, 0%, 100%, .15);
 }
+
 .common-topbar:hover {
 	border-bottom: 1px solid #373d41;
 	background: #373d41;
@@ -191,22 +192,27 @@
 	text-align: center;
 }
 
+.all-nav:hover {
+	background: #00c1de;
+}
+
 .all-nav i {
 	padding-right: 10px;
 }
 
 .common-topbar-nav-list {
 	float: left;
+	position: relative;
 }
 
 .common-topbar-nav-list .line {
 	position: absolute;
-    width: 0;
-    height: 3px;
-    left: 115px;
-    bottom: 0;
-    background: #00c1de;
-    transition: width .3s cubic-bezier(.4,0,.2,1);
+	width: 0;
+	height: 3px;
+	left: 115px;
+	bottom: 0;
+	background: #00c1de;
+	transition: all .2s cubic-bezier(.4, 0, .2, 1);
 }
 
 .common-topbar-register {
