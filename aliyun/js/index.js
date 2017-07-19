@@ -31,15 +31,13 @@ $(".common-topbar-nav-list").on("mouseleave", function() {
 	});
 });
 
-var $nav = $(".common-topbar-all-nav-dropdown");
-var $level1 = $(".common-topbar-level1-nav");
 $(".all-nav").on("mouseenter", function() {
-	$level1.animate({
+	$(".common-topbar-level1-nav").animate({
 		left: 0
 	}, 300, "linear");
 });
 $(".all-nav").on("mouseleave", function() {
-	$level1.animate({
+	$(".common-topbar-level1-nav").animate({
 		left: -200
 	}, 200, "linear");
 });

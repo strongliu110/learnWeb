@@ -178,7 +178,7 @@
 
 .common-topbar-bottom {
 	clear: both;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	color: #fff;
 }
 
@@ -189,14 +189,12 @@
 	padding: 0 20px;
 	color: #fff;
 	cursor: default;
-	text-align: center;
 }
-
 .all-nav:hover {
 	background: #00c1de;
 }
-
 .all-nav i {
+	text-align: center;
 	padding-right: 10px;
 }
 
@@ -290,7 +288,7 @@
 	width: 800px;
 	position: absolute;
 	top: 0;
-	right: -60px;
+	right: -40px;
 }
 
 .index-box-row {

@@ -1,9 +1,9 @@
 @charset "utf-8";
 .common-topbar-all-nav-dropdown {
 	clear: both;
-	min-width: 1080px;
 	color: #fff;
 	position: relative;
+	left: -20px;
 }
 
 .common-topbar-level1-nav {
@@ -15,7 +15,7 @@
 	padding: 20px 0;
 	position: absolute;
 	left: -200px;
-	z-index: 4;
+	z-index: 1;
 	overflow: hidden;
 }
 
