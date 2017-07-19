@@ -3,7 +3,7 @@
 	clear: both;
 	font-size: 14px;
 	height: 640px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	background: #24282c;
 	background-image: linear-gradient(-180deg, rgba(55, 60, 65, 0) 38%, rgba(24, 101, 114, 1) 100%);
 	/*opacity: 0.5;*/
@@ -178,6 +178,7 @@
 .common-topbar-bottom {
 	clear: both;
 	overflow: hidden;
+	color: #fff;
 }
 
 .all-nav {

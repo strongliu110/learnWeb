@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+.common-topbar-all-nav-dropdown {
+	display: none;
+	clear: both;
+	min-width: 1080px;
+	color: #fff;
+    position: relative;
+}
+
+.common-topbar-level1-nav {
+	width: 200px;
+   height: 625px;
+	background: #272b2e;
+    box-sizing: border-box;
+    border-right: 1px solid hsla(0,0%,100%,.15);
+    padding: 20px 0;
+    position: absolute;
+    z-index: 4;
+    overflow: hidden;
+}
+.common-topbar-level1-nav ul {
+	width: 200px;
+	list-style: none;
+}
+.common-topbar-level1-nav ul li {
+    overflow: hidden;
+}
+.common-topbar-level1-nav ul li i {
+	float: right;
+}
+
+.space-line {
+	margin: 12px 20px;
+    height: 1px;
+    opacity: 0.2;
+    background: #fff;
+}
+
+.inner-text {
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    padding: 6px 20px;
+    cursor: pointer;
+}
+.inner-text a {
+	color: #fff;
+}
+.dock-bottom {
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
