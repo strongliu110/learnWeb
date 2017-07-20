@@ -41,3 +41,5 @@ $(".all-nav").on("mouseleave", function() {
 		left: -200
 	}, 200, "linear");
 });
+
+.index-top-bananer
