@@ -49,10 +49,10 @@ $(".all-nav").on("mouseleave", function() {
 
 	function carousel() {
 		$($contentList[index]).removeClass("active");
-		$($indexList[index]).removeClass("carousel-active");
+		$($indexList[index]).removeClass("active");
 		index = (index >= 4) ? -1 : index;
 		$($contentList[index + 1]).addClass("active");
-		$($indexList[index + 1]).addClass("carousel-active");
+		$($indexList[index + 1]).addClass("active");
 		index++;
 	}
 
@@ -65,10 +65,27 @@ $(".all-nav").on("mouseleave", function() {
 			$(this).removeClass("active");
 		});
 		$indexList.each(function() {
-			$(this).removeClass("carousel-active");
+			$(this).removeClass("active");
 		});
-		
+
 		$($contentList[index]).addClass("active");
-		$($indexList[index]).addClass("carousel-active");
+		$($indexList[index]).addClass("active");
 	});
 })();
+
+$(".common-topbar-search").find("i").on("click", function() {
+	var $searchElem = $(this).parents(".common-topbar-search");
+	if ($searchElem.hasClass("hover")) {
+		$(this).parent().removeClass("hover");
+	} else {
+		$(this).parent().addClass("hover");
+		$(this).parent().find("input").focus();
+	}
+});
+
+$(".common-topbar-search").find("input").on("blur", function() {
+	var self = this;
+	setTimeout(function() {
+		$(self).parents(".common-topbar-search").removeClass("hover")
+	}, 100);
+})

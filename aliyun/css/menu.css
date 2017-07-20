@@ -176,6 +176,26 @@
 	cursor: pointer;
 }
 
+.common-topbar-search input {
+	width: 0;
+	height: 30px;
+	opacity: 0;
+	border: 0;
+	background-color: #4f5356;
+	color: #b8bcbf;
+	outline: none;
+	transition: all .2s ease-in-out;
+}
+
+.common-topbar-search.hover {
+	background: #4f5356;
+}
+
+.common-topbar-search.hover input {
+	width: 170px;
+	opacity: 1;
+}
+
 .common-topbar-bottom {
 	clear: both;
 	/*overflow: hidden;*/
@@ -247,8 +267,8 @@
 	display: none;
 }
 
-.active {
-	display: block !important;
+.index-top-bananer a.active {
+	display: block;
 }
 
 @-webkit-keyframes banner-slide-20 {
@@ -365,8 +385,8 @@
 	-moz-background-clip: padding;
 }
 
-.carousel-active {
-	border: 1px #fff solid !important;
+.carousel-banner ul li.active {
+	border: 1px #fff solid;
 }
 
 .index-box-row {
