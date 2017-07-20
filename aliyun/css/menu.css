@@ -361,6 +361,7 @@
 	bottom: 120px;
 	margin-left: -65px;
 	left: 50%;
+	z-index: 2;
 }
 
 .carousel-banner ul {
