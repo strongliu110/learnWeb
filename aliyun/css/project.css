@@ -1,33 +1,32 @@
 @charset "utf-8";
-
 .project {
 	clear: both;
 }
 
 .project-title img {
 	display: block;
-    width: 130px;
-    margin: 32px auto 24px;
+	width: 130px;
+	margin: 32px auto 24px;
 }
 
 .project-title h1,
 .all-market-title h1,
 .community-title h1 {
 	text-align: center;
-    font-size: 24px;
-    color: #373d41;
-    line-height: 36px;
-    font-weight: 500;
+	font-size: 24px;
+	color: #373d41;
+	line-height: 36px;
+	font-weight: 500;
 }
 
 .project-title a,
 .all-market-title a,
 .community-title a {
 	text-align: center;
-    font-size: 16px;
-    margin: 8px 0 42px;
-    display: block;
-    color: #373d41;
+	font-size: 16px;
+	margin: 8px 0 42px;
+	display: block;
+	color: #373d41;
 }
 
 .project-title a:hover,
@@ -38,21 +37,26 @@
 
 .product-tabs ul {
 	text-align: center;
-    width: 1200px;
-    margin: 0 auto;
+	width: 1200px;
+	margin: 0 auto;
 	overflow: hidden;
 	list-style: none;
+	position: relative;
 }
 
 .product-tabs ul li {
 	float: left;
-    padding: 15px 39px;
-    width: 156px;
+	padding: 15px 39px;
+	width: 156px;
+}
+
+.product-tabs ul li.active a h2 {
+	color: #00c1de;
 }
 
 .product-tabs ul li a {
 	display: block;
-    color: #373d41;
+	color: #373d41;
 }
 
 .product-tabs ul li a:hover {
@@ -61,8 +65,8 @@
 
 .product-tabs ul li a img {
 	width: 80px;
-    height: 80px;
-    margin: 0 auto;
+	height: 80px;
+	margin: 0 auto;
 }
 
 .product-tabs ul li h2 {
@@ -75,17 +79,175 @@
 
 .product-show-more {
 	width: 120px;
-    height: 36px;
-    line-height: 36px;
-    margin: 35px auto 40px;
-    text-align: center;
-    font-size: 14px;
-    color: #373d41;
-    border: 1px solid #373d41;
-    cursor: pointer;
+	height: 36px;
+	line-height: 36px;
+	margin: 35px auto 40px;
+	text-align: center;
+	font-size: 14px;
+	color: #373d41;
+	border: 1px solid #373d41;
+	cursor: pointer;
 }
 
 .product-show-more:hover {
 	color: #00c1de;
-    border: 1px solid #00c1de;
+	border: 1px solid #00c1de;
+}
+
+.indicator-triangle {
+	position: absolute;
+	bottom: 0;
+	/*left: 341px;*/
+	display: none;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 8px solid #f5f5f6;
+	transition: left .3s linear;
+}
+
+.indicator-triangle.active {
+	display: block;
+}
+
+.product-content-container {
+	background: #f5f5f6;
+}
+
+.product-content {
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	display: none;
+}
+
+.product-content:before {
+	content: "";
+	height: 20px;
+	display: block;
+}
+
+.product-content:after {
+	content: "";
+	height: 20px;
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.product-hot-box {
+	float: left;
+	width: 32.5%;
+}
+
+.product-hot-item {
+	width: 350px;
+	margin-bottom: 42px;
+	cursor: pointer;
+}
+
+.product-hot-item a {
+	display: block;
+	cursor: pointer;
+}
+
+.product-hot-item a h2 {
+	font-size: 18px;
+	font-weight: normal;
+	color: #373d41;
+	line-height: 24px;
+	font-weight: bolder;
+	margin-top: 12px;
+	transition: all .3s ease-in-out;
+}
+
+.product-hot-item a:hover h2 {
+	color: #00c1de;
+}
+
+.product-hot-item a p {
+	font-size: 12px;
+	color: #9b9ea0;
+	line-height: 18px;
+	margin-top: 8px;
+}
+
+.product-button {
+	display: block;
+	width: 96px;
+	height: 28px;
+	line-height: 28px;
+	margin-top: 16px;
+	text-align: center;
+	font-size: 12px;
+	color: #373d41;
+	border: 1px solid #373d41;
+	cursor: pointer;
+	text-decoration: none;
+	transition: all .3s ease-in-out;
+}
+
+.product-button:hover {
+	color: #00c1de;
+	border: 1px solid #00c1de;
+}
+
+.product-normal-box {
+	float: left;
+	width: 33.5%;
+}
+
+.product-content-box {
+	width: 100%;
+	overflow: hidden;
+}
+
+.product-normal-box a,
+.product-content-box a {
+	position: relative;
+	display: block;
+	float: left;
+	width: 374px;
+	height: 72px;
+	padding: 12px 20px;
+	margin-left: 0;
+	margin-right: 32px;
+	box-sizing: border-box;
+	transition: all .3s ease-in-out;
+}
+
+.product-normal-box a:hover,
+.product-content-box a:hover {
+	background: #fff;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, .15);
+}
+
+.product-normal-box a h3,
+.product-content-box a h3 {
+	font-size: 14px;
+	font-weight: normal;
+	color: #373d41;
+	line-height: 24px;
+	transition: all .3s ease-in-out;
+}
+
+.product-normal-box a p,
+.product-content-box a p {
+	font-size: 12px;
+	color: #9b9ea0;
+	line-height: 24px;
+}
+
+.product-normal-box a i,
+.product-content-box a i {
+	position: absolute;
+	color: #000;
+	right: 12px;
+	top: 30px;
+	opacity: 0;
+	transition: all .3s ease-in-out;
+}
+
+.product-normal-box a:hover i,
+.product-content-box a:hover i {
+	opacity: 1;
 }

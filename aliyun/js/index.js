@@ -38,7 +38,7 @@ $(".all-nav").on("mouseenter", function() {
 });
 $(".all-nav").on("mouseleave", function() {
 	$(".common-topbar-level1-nav").animate({
-		left: -200
+		left: "-200px"
 	}, 200, "linear");
 });
 
@@ -62,20 +62,25 @@ $(".all-nav").on("mouseleave", function() {
 		var index = $(this).index();
 		clearInterval(interval);
 		$contentList.each(function() {
-			$(this).removeClass("active");
+			if($(this).index() == index) {
+				$(this).addClass("active");
+			} else {
+				$(this).removeClass("active");
+			}
 		});
 		$indexList.each(function() {
-			$(this).removeClass("active");
+			if($(this).index() == index) {
+				$(this).addClass("active");
+			} else {
+				$(this).removeClass("active");
+			}
 		});
-
-		$($contentList[index]).addClass("active");
-		$($indexList[index]).addClass("active");
 	});
 })();
 
 $(".common-topbar-search").find("i").on("click", function() {
 	var $searchElem = $(this).parents(".common-topbar-search");
-	if ($searchElem.hasClass("hover")) {
+	if($searchElem.hasClass("hover")) {
 		$(this).parent().removeClass("hover");
 	} else {
 		$(this).parent().addClass("hover");
@@ -88,4 +93,56 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	setTimeout(function() {
 		$(self).parents(".common-topbar-search").removeClass("hover")
 	}, 100);
-})
+});
+
+(function() {
+	var $projectElems = $(".product-content-box").find("a");
+	for(var i = 0; i < $projectElems.length; i++) {
+		$($projectElems[i]).css({
+			"margin-right": "6px"
+		});
+	}
+})();
+
+(function() {
+	$(".product-tabs").on("click", "li", function() {
+		var self = this;
+		var index = $(this).index();
+		
+		var $contentElems = $(this).closest(".product-tabs").find(".product-content");
+		$contentElems.each(function() {
+			if($(this).index() == index) {
+				$(this).fadeIn();
+			} else {
+				$(this).hide();
+			}
+		});
+		
+		var $indexList = $(this).closest(".product-tabs").find("li");
+		$indexList.each(function() {
+			if($(this).index() == index) {
+				$(this).addClass("active");
+//				$(this).find("img").attr("src", "https://img.alicdn.com/tfs/TB1XhNOQVXXXXXcaXXXXXXXXXXX-160-160.png");
+			} else {
+				$(this).removeClass("active");
+			}
+		});
+		
+		// 显示父元素效果
+		$(this).closest(".product-tabs").find(".product-content-container").show();
+		$(this).closest(".product-tabs").find(".indicator-triangle").addClass("active");
+		
+		// 隐藏所有兄弟元素
+		var $hideTable = $(this).closest(".product-tabs").siblings(".product-tabs");
+		$hideTable.find(".product-content-container").hide();
+		$hideTable.find(".indicator-triangle").removeClass("active");
+		$hideTable.find("li").removeClass("active");
+
+		var $indicatorElem = $(this).parent().find(".indicator-triangle");
+		$indicatorElem.css({
+			left: $(this).position().left + $(this).outerWidth() / 2 - $indicatorElem.outerWidth() / 2
+		});
+	});
+	
+	$(".product-tabs").find("li").first().click();
+})();
