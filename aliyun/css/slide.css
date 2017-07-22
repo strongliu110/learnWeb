@@ -1,5 +1,96 @@
 @charset "utf-8";
-
 .slide-container {
 	clear: both;
+}
+
+.slide-body {}
+
+.slide-body ul {}
+
+.slide-body ul li {
+	float: left;
+	width: 256px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.slide-body ul li a {
+	display: block;
+	border: 1px solid;
+}
+
+.slide-body ul li a:hover {
+	color: #00c1de;
+}
+
+.slide-mask {
+	background: #161A1D url(https://img.alicdn.com/tps/TB16hkwLXXXXXX6XXXXXXXXXXXX-576-840.jpg) no-repeat;
+}
+
+.slide-content {	
+	margin-top: 100px;
+}
+
+.slide-mask .item-img-panel {
+	position: relative;
+	height: 64px;
+	width: 25%;
+	margin: 0 auto;
+}
+
+.slide-mask .item-img-panel img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.slide-mask i {
+	display: inline-block;
+	margin-top: 20px;
+	width: 20px;
+    height: 2px;
+    background: #fff;
+}
+
+.slide-mask h3 {
+	color: #fff;
+    font-size: 22px;
+    line-height: 24px;
+    margin-top: 24px;
+    font-weight: bold;
+}
+
+.slide-mask p {
+	/*opacity: 0;*/
+	color: #fff;
+	padding: 0px 23px;
+	margin-top: 30px;
+	font-size: 14px;
+	line-height: 24px;
+	height: 72px;
+    text-align: center;
+}
+
+.slide-mask span {
+	display: inline-block;
+	margin-top: 62px;
+    border: 1px solid #fff;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.slide-mask img,
+.slide-mask i,
+.slide-mask h3,
+.slide-mask p,
+.slide-mask span {
+    -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
