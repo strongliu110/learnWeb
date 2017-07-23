@@ -16,31 +16,32 @@ $(".product-show-more").on("click", function() {
 	}, 300, "linear");
 });
 
-$(".common-topbar-nav-list").on("mousemove", "li", function(ev) {
+(function() {
 	var $line = $(".common-topbar-nav-list").find(".line");
-	$line.css({
-		width: $(this).outerWidth(),
-		left: $(this).position().left
+	$(".common-topbar-nav-list").on("mousemove", "li", function(ev) {
+		$line.css({
+			width: $(this).outerWidth(),
+			left: $(this).position().left
+		});
 	});
-});
 
-$(".common-topbar-nav-list").on("mouseleave", function() {
-	var $line = $(".common-topbar-nav-list").find(".line");
-	$line.css({
-		width: 0
+	$(".common-topbar-nav-list").on("mouseleave", function() {
+		$line.css({
+			width: 0
+		});
 	});
-});
 
-$(".all-nav").on("mouseenter", function() {
-	$(".common-topbar-level1-nav").animate({
-		left: 0
-	}, 300, "linear");
-});
-$(".all-nav").on("mouseleave", function() {
-	$(".common-topbar-level1-nav").animate({
-		left: "-200px"
-	}, 200, "linear");
-});
+	$(".all-nav").on("mouseenter", function() {
+		$(".common-topbar-level1-nav").animate({
+			left: 0
+		}, 300, "linear");
+	});
+	$(".all-nav").on("mouseleave", function() {
+		$(".common-topbar-level1-nav").animate({
+			left: "-200px"
+		}, 200, "linear");
+	});
+})();
 
 (function() {
 	var index = 0;
@@ -108,7 +109,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	$(".product-tabs").on("click", "li", function() {
 		var self = this;
 		var index = $(this).index();
-		
+
 		var $contentElems = $(this).closest(".product-tabs").find(".product-content");
 		$contentElems.each(function() {
 			if($(this).index() == index) {
@@ -117,21 +118,21 @@ $(".common-topbar-search").find("input").on("blur", function() {
 				$(this).hide();
 			}
 		});
-		
+
 		var $indexList = $(this).closest(".product-tabs").find("li");
 		$indexList.each(function() {
 			if($(this).index() == index) {
 				$(this).addClass("active");
-//				$(this).find("img").attr("src", "https://img.alicdn.com/tfs/TB1XhNOQVXXXXXcaXXXXXXXXXXX-160-160.png");
+				//				$(this).find("img").attr("src", "https://img.alicdn.com/tfs/TB1XhNOQVXXXXXcaXXXXXXXXXXX-160-160.png");
 			} else {
 				$(this).removeClass("active");
 			}
 		});
-		
+
 		// 显示父元素效果
 		$(this).closest(".product-tabs").find(".product-content-container").show();
 		$(this).closest(".product-tabs").find(".indicator-triangle").addClass("active");
-		
+
 		// 隐藏所有兄弟元素
 		var $hideTable = $(this).closest(".product-tabs").siblings(".product-tabs");
 		$hideTable.find(".product-content-container").hide();
@@ -143,6 +144,81 @@ $(".common-topbar-search").find("input").on("blur", function() {
 			left: $(this).position().left + $(this).outerWidth() / 2 - $indicatorElem.outerWidth() / 2
 		});
 	});
-	
+
 	$(".product-tabs").find("li").first().click();
+})();
+
+(function() {
+	var $slide = $(".slide-body").find("ul");
+	var itemSize = $($(".slide-body").find("li")[0]).width();
+	var totalItem = $slide.width() / itemSize;
+	var currentItem = Math.abs($slide.position().left) / itemSize + 1;
+	var showItem = 5,
+		moveItem = 5;
+
+	$(".left-btn").on("click", function() {
+		var nextItem = function() {
+			if(currentItem == 1) {
+				return totalItem + 1 - moveItem;
+			} else if(currentItem - moveItem >= 1) {
+				return currentItem - moveItem;
+			} else {
+				return 1;
+			}
+		}();
+		var moveWidth = function() {
+			if(currentItem < nextItem) {
+				return moveItem * itemSize;
+			} else {
+				return(currentItem - nextItem) * itemSize;
+			}
+		}();
+
+		$slide.stop().animate({
+			left: "+=" + moveWidth + "px"
+		}, 350, function() {
+			currentItem = nextItem;	
+			if (currentItem <= 1) {
+				setTimeout(function() {
+					$slide.css({
+						left: -2816
+					})
+				}, 0);
+				currentItem = totalItem + 1 - moveItem;
+			}
+		});
+	});
+
+	$(".right-btn").on("click", function() {
+		var nextItem = function() {
+			if(currentItem + moveItem + showItem < totalItem + 1) {
+				return currentItem + moveItem;
+			} else if(currentItem + moveItem == totalItem + 1) {
+				return 1;
+			} else {
+				return totalItem + 1 - showItem;
+			}
+		}();
+		var moveWidth = function() {
+			if(currentItem > nextItem) {
+				return moveItem * itemSize;
+			} else {
+				return(nextItem - currentItem) * itemSize;
+			}
+		}();
+
+		$slide.stop().animate({
+			left: "-=" + moveWidth + "px"
+		}, 350, function() {
+			currentItem = nextItem;
+			if(currentItem + moveItem >= totalItem	+ 1) {
+				setTimeout(function() {
+					$slide.css({
+						left: 0
+					})
+				}, 0);
+				currentItem = 1;
+			}
+		});
+	});
 })();
