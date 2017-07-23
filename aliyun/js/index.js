@@ -149,6 +149,12 @@ $(".common-topbar-search").find("input").on("blur", function() {
 })();
 
 (function() {
+	$(".slide-body").find("li:even .slide-mask").each(function() {
+		$(this).css({
+			background: "rgba(22, 26, 29, 0.82)"
+		});
+	});
+
 	var $slide = $(".slide-body").find("ul");
 	var itemSize = $($(".slide-body").find("li")[0]).width();
 	var totalItem = $slide.width() / itemSize;
@@ -177,8 +183,8 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		$slide.stop().animate({
 			left: "+=" + moveWidth + "px"
 		}, 350, function() {
-			currentItem = nextItem;	
-			if (currentItem <= 1) {
+			currentItem = nextItem;
+			if(currentItem <= 1) {
 				setTimeout(function() {
 					$slide.css({
 						left: -2816
@@ -211,7 +217,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 			left: "-=" + moveWidth + "px"
 		}, 350, function() {
 			currentItem = nextItem;
-			if(currentItem + moveItem >= totalItem	+ 1) {
+			if(currentItem + moveItem >= totalItem + 1) {
 				setTimeout(function() {
 					$slide.css({
 						left: 0
