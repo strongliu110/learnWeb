@@ -55,13 +55,8 @@ img.item-bg {
 .slide-content {
 	position: absolute;
 	left: 0;
-	top: 100px;
 	right: 0;
 	bottom: 0;
-}
-
-.slide-body ul li:hover .slide-content {
-	top: 13%;
 }
 
 .slide-content .item-img-panel {
@@ -112,6 +107,10 @@ img.item-bg {
 	text-decoration: none;
 }
 
+/* 动画开始位置 */
+.slide-content {
+	top: 100px;
+}
 .slide-mask {
 	background: rgba(22, 26, 29, 0.6);
 }
@@ -144,6 +143,9 @@ img.item-bg {
 	margin-top: 62px;
 }
 
+.slide-body ul li:hover .slide-content {
+	top: 13%;
+}
 .slide-body ul li:hover .slide-mask {
 	background: rgba(0, 194, 222, 0.8);
 }
@@ -175,10 +177,10 @@ img.item-bg {
 	margin-top: 14%;
 }
 
+/* 动画效果需要给所有变化的元素添加，以防止闪现 */
 .slide-mask,
-
-/*.slide-mask img,*/
-
+.slide-content,
+.slide-mask img,
 .slide-content i,
 .slide-content h3,
 .slide-content p,
@@ -188,6 +190,7 @@ img.item-bg {
 	-o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* 动画结束位置 */
 
 .slide-btn-panel {
 	position: absolute;
