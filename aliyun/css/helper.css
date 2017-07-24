@@ -1,3 +1,40 @@
+.common-helper {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: auto;
+	min-width: 0;
+}
+
+.entry-button {
+	/*position: fixed;*/
+	z-index: 100;
+	right: 20px;
+	bottom: 10px;
+}
+
+#top-button {
+	/*position: fixed;*/
+	z-index: 100;
+	right: 20px;
+	bottom: 60px;
+	margin-top: 8px;
+	cursor: pointer;
+}
+
+.entry-button,
+#top-button {
+	box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .15);
+	width: 44px;
+	height: 44px;
+	box-sizing: border-box;
+}
+
+.entry-button img,
+#top-button img {
+	width: 100%;
+}
+
 .helper-entry {
 	position: relative;
 }
@@ -14,6 +51,7 @@
 	box-sizing: border-box;
 	transition: all .3s;
 }
+
 .entry-panel {
 	visibility: hidden;
 	opacity: 0;
@@ -22,7 +60,7 @@
 
 .entry-panel.active {
 	visibility: visible;
-    opacity: 1;
+	opacity: 1;
 	bottom: 59px;
 }
 
@@ -33,7 +71,7 @@
 	cursor: pointer;
 }
 
-.panel-close .entry-panel img {
+.panel-close img {
 	width: 14px;
 }
 
@@ -91,33 +129,4 @@
 
 .panel-content li:first-child a span {
 	color: #FF8A00;
-}
-
-.entry-button {
-	position: fixed;
-	z-index: 100;
-	right: 20px;
-	bottom: 10px;
-}
-
-#top-button {
-	position: fixed;
-	z-index: 100;
-	right: 20px;
-	bottom: 60px;
-	margin-top: 8px;
-	cursor: pointer;
-}
-
-.entry-button,
-#top-button {
-	box-shadow: 0 6px 12px 0 rgba(0, 0, 0, .15);
-	width: 44px;
-	height: 44px;
-	box-sizing: border-box;
-}
-
-.entry-button img,
-#top-button img {
-	width: 100%;
 }

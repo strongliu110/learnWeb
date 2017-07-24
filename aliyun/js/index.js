@@ -230,11 +230,14 @@ $(".common-topbar-search").find("input").on("blur", function() {
 })();
 
 (function() {
-	$(".helper-entry").hover(function() {
-		$(".entry-panel").addClass("active");
-	}, function() {
-		$(".entry-panel").removeClass("active");
-	})
+	var timeout = null;
+	$(".helper-entry").on("mouseenter", function() {
+		timeout && (clearTimeout(timeout), $(".entry-panel").addClass("active"));
+	}).on("mouseleave", function() {
+		timeout = setTimeout(function() {
+			$(".entry-panel").removeClass("active");
+		}, 250);
+	});
 })();
 
 (function() {
