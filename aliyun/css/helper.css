@@ -1,24 +1,14 @@
 .common-helper {
 	position: fixed;
-	bottom: 0;
-	right: 0;
-	width: auto;
-	min-width: 0;
-}
-
-.entry-button {
-	/*position: fixed;*/
-	z-index: 100;
+	width: 44px;
 	right: 20px;
-	bottom: 10px;
+	bottom: 20px;
+	z-index: 250;
 }
 
 #top-button {
-	/*position: fixed;*/
-	z-index: 100;
-	right: 20px;
-	bottom: 60px;
 	margin-top: 8px;
+	display: none;
 	cursor: pointer;
 }
 
@@ -41,7 +31,6 @@
 
 .entry-panel {
 	position: absolute;
-	z-index: 4;
 	right: 0;
 	width: 320px;
 	min-height: 50px;
@@ -53,14 +42,14 @@
 }
 
 .entry-panel {
-	visibility: hidden;
 	opacity: 0;
+	visibility: hidden;
 	bottom: 49px;
 }
 
 .entry-panel.active {
-	visibility: visible;
 	opacity: 1;
+	visibility: visible;
 	bottom: 59px;
 }
 

@@ -232,11 +232,16 @@ $(".common-topbar-search").find("input").on("blur", function() {
 (function() {
 	var timeout = null;
 	$(".helper-entry").on("mouseenter", function() {
-		timeout && (clearTimeout(timeout), $(".entry-panel").addClass("active"));
+		timeout && clearTimeout(timeout);
+		$(".entry-panel").addClass("active");
 	}).on("mouseleave", function() {
 		timeout = setTimeout(function() {
 			$(".entry-panel").removeClass("active");
-		}, 250);
+		}, 0);
+	});
+	
+	$(".panel-close").on("click", function() {
+		$(".entry-panel").removeClass("active");
 	});
 })();
 
