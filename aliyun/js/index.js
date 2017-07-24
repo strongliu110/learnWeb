@@ -228,3 +228,20 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		});
 	});
 })();
+
+(function() {
+	$(".helper-entry").hover(function() {
+		$(".entry-panel").addClass("active");
+	}, function() {
+		$(".entry-panel").removeClass("active");
+	})
+})();
+
+(function() {
+	$(window).scroll(function() {
+		$(document).scrollTop() > 500 ? $("#top-button").show() : $("#top-button").hide();
+	})
+	$("#top-button").on("click", function() {
+		$(window).scrollTop(0);
+	});
+})();
