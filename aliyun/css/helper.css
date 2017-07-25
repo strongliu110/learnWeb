@@ -47,7 +47,7 @@
 	bottom: 49px;
 }
 
-.entry-panel.active {
+.helper-entry.active .entry-panel {
 	opacity: 1;
 	visibility: visible;
 	bottom: 59px;
@@ -64,14 +64,14 @@
 	width: 14px;
 }
 
-.entry-panel .panel-content {
+.helper-entry .panel-content {
 	min-height: 24px;
 	opacity: 0;
 	transition: all .3s;
 	transition-delay: .1s;
 }
 
-.entry-panel.active .panel-content {
+.helper-entry.active .panel-content {
 	opacity: 1;
 }
 

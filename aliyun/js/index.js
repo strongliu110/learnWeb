@@ -231,17 +231,27 @@ $(".common-topbar-search").find("input").on("blur", function() {
 
 (function() {
 	var timeout = null;
-	$(".helper-entry").on("mouseenter", function() {
+	var $entry = $(".helper-entry");
+	$entry.on("mouseenter", function() {
 		timeout && clearTimeout(timeout);
-		$(".entry-panel").addClass("active");
+		$entry.addClass("active");
+		console.log("mouseenter");
 	}).on("mouseleave", function() {
 		timeout = setTimeout(function() {
-			$(".entry-panel").removeClass("active");
-		}, 0);
+			$entry.removeClass("active");
+			console.log("mouseleave");
+		}, 250);
 	});
 	
-	$(".panel-close").on("click", function() {
-		$(".entry-panel").removeClass("active");
+	$(".entry-panel").on("mouseenter", function() {
+		console.log("mouseenter 1");
+	});
+	$(".entry-panel").on("mouseleave", function() {
+		console.log("mouseleave 1");
+	});
+	
+	$entry.on("click", ".panel-close", function() {
+		$entry.removeClass("active");
 	});
 })();
 
