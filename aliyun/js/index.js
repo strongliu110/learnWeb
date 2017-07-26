@@ -242,14 +242,14 @@ $(".common-topbar-search").find("input").on("blur", function() {
 			console.log("mouseleave");
 		}, 250);
 	});
-	
+
 	$(".entry-panel").on("mouseenter", function() {
 		console.log("mouseenter 1");
 	});
 	$(".entry-panel").on("mouseleave", function() {
 		console.log("mouseleave 1");
 	});
-	
+
 	$entry.on("click", ".panel-close", function() {
 		$entry.removeClass("active");
 	});
@@ -261,5 +261,40 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	})
 	$("#top-button").on("click", function() {
 		$(window).scrollTop(0);
+	});
+})();
+
+(function() {
+	var marketImages = ["https://img.alicdn.com/tps/TB1ceKWLXXXXXaEapXXXXXXXXXX-150-9000.jpg",
+		"https://img.alicdn.com/tps/TB1sd_fLXXXXXX2XFXXXXXXXXXX-150-9000.jpg",
+		"https://img.alicdn.com/tps/TB1icTcLXXXXXclXFXXXXXXXXXX-150-9000.jpg",
+		"https://img.alicdn.com/tps/TB1l3YmLXXXXXb9XXXXXXXXXXXX-150-9000.jpg",
+		"https://img.alicdn.com/tps/TB1.1fkLXXXXXXrXpXXXXXXXXXX-150-9000.jpg",
+		"https://img.alicdn.com/tps/TB1.1fkLXXXXXXrXpXXXXXXXXXX-150-9000.jpg",
+		"https://img.alicdn.com/tps/TB1heGZLXXXXXaeapXXXXXXXXXX-150-9000.jpg"
+	];
+
+	var $marketCells = $(".all-market-content").find(".market-cell");
+	$marketCells.each(function(index, elem) {
+		$(this).find(".market-img").css({
+			"background-image": 'url(' + marketImages[index] + ')'
+		})
+	});
+
+//0 -225 1125 1950 3075 3975 4425 
+//225 900 825 1125 900 450 
+//
+//-4425 4200 3075 2250 1500 450 0
+//225 1125 825 750 1050 450
+
+	$(".market-cell").find("a").hover(function() {
+		var x = $(this).find(".market-img");
+		x.animate({
+			"background-position-y": "-3975px"
+		}, 1000, "easeOutExpo");
+	}, function() {
+		$(this).find(".market-img").animate({
+			"background-position-y": "0px"
+		}, 1000, "easeInExpo");
 	});
 })();
