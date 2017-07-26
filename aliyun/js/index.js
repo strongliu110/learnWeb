@@ -277,24 +277,85 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	var $marketCells = $(".all-market-content").find(".market-cell");
 	$marketCells.each(function(index, elem) {
 		$(this).find(".market-img").css({
-			"background-image": 'url(' + marketImages[index] + ')'
+			"background-image": 'url(' + marketImages[index] + ')',
 		})
 	});
 
-//0 -225 1125 1950 3075 3975 4425 
-//225 900 825 1125 900 450 
-//
-//-4425 4200 3075 2250 1500 450 0
-//225 1125 825 750 1050 450
-
 	$(".market-cell").find("a").hover(function() {
 		var x = $(this).find(".market-img");
-		x.animate({
-			"background-position-y": "-3975px"
-		}, 1000, "easeOutExpo");
+		var anim = frameAnimation.anims(x, 60 * 75, 60, 1, 1);
+		anim.start();
+		//		x.animate({
+		//			"background-position-y": "-3975px"
+		//		}, 1000, "easeOutExpo");
 	}, function() {
-		$(this).find(".market-img").animate({
-			"background-position-y": "0px"
-		}, 1000, "easeInExpo");
+//		$(this).find(".market-img").animate({
+//			"background-position-y": "0px"
+//		}, 1000, "easeInExpo");
 	});
 })();
+
+window.frameAnimation = {
+	anims: (function() {
+		/*
+		obj=>需要执行背景动画的对象；
+		width:图片的总宽度
+		steps=>需要的帧数；
+		eachtime=>一次完整动画需要的时间；
+		times=>动画执行的次数 0表示无限反复
+		*/
+		return function(obj, width, steps, eachtime, times) {
+			var runing = false;
+			var handler = null; //obj,width,steps,eachtime,times定时器
+			var step = 0; //当前帧
+			var time = 0; //当前第几轮
+			var speed = eachtime * 500 / steps; //间隔时间
+			var oneStepWidth = width / steps;
+
+			function _play() {
+				if(step >= steps) {
+					step = 0;
+					time++;
+				}
+				if(0 == times || time < times) {
+					obj.css('background-position', "0 -" + oneStepWidth * step + "px");
+					step++;
+				} else {
+					control.stop();
+				}
+			}
+
+			var control = {
+				start: function() {
+						if(!runing) {
+							runing = true;
+							step = time = 0;
+							handler = setInterval(_play, speed);
+						}
+						return this;
+					}
+
+					,
+				stop: function(restart) {
+					if(runing) {
+						runing = false;
+						if(handler) {
+							clearInterval(handler);
+							handler = null;
+						}
+						if(restart) {
+							obj.css('background-position', '0 0');
+							step = 0;
+							time = 0;
+						}
+					}
+				},
+				dispose: function() {
+					this.stop();
+					//console.log('anim dispose');
+				}
+			};
+			return control;
+		}
+	})()
+}
