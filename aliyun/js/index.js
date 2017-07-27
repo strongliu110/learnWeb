@@ -282,7 +282,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 
 	$(".market-cell").find("a").hover(function() {
 		var $market = $(this).find(".market-img");
-		
+
 		(function(width, steps, time) {
 			var step = 1;
 			var speed = time / steps;
@@ -301,6 +301,9 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		})(75, 60, 1000);
 	}, function() {
 		var $market = $(this).find(".market-img");
+		var steps = Math.abs(parseInt($market.css("backgroundPositionY"))) / 75;
+		var time = 1000 * steps / 60;
+		
 		(function(width, steps, time) {
 			var step = steps - 1;
 			var speed = time / steps;
@@ -316,6 +319,6 @@ $(".common-topbar-search").find("input").on("blur", function() {
 			}
 
 			var handler = setInterval(_playBackward, speed);
-		})(150, 30, 1000);
+		})(75, steps, time);
 	});
 })();
