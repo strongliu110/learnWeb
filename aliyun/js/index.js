@@ -280,9 +280,13 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		})
 	});
 
-	$(".market-cell").find("a").hover(function() {
+	$(".market-cell").children("a").hover(function() {
 		var $market = $(this).find(".market-img");
-
+		var posY = $market.css("backgroundPositionY");
+		var steps = 60 - Math.abs(parseInt(posY)) / 75;
+		var time = 1000 * steps / 60;
+		console.log("_playForward posY=", posY, "steps=", steps, "time=", time);
+		
 		(function(width, steps, time) {
 			var step = 1;
 			var speed = time / steps;
@@ -298,12 +302,14 @@ $(".common-topbar-search").find("input").on("blur", function() {
 			}
 
 			var handler = setInterval(_playForward, speed);
-		})(75, 60, 1000);
+		})(75, steps, time);
 	}, function() {
 		var $market = $(this).find(".market-img");
-		var steps = Math.abs(parseInt($market.css("backgroundPositionY"))) / 75;
+		var posY = $market.css("backgroundPositionY");
+		var steps = Math.abs(parseInt(posY)) / 75;
 		var time = 1000 * steps / 60;
-		
+		console.log("_playBackward posY=", posY, "steps=", steps, "time=", time);
+
 		(function(width, steps, time) {
 			var step = steps - 1;
 			var speed = time / steps;
