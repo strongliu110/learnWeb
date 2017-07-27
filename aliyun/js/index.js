@@ -270,8 +270,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		"https://img.alicdn.com/tps/TB1icTcLXXXXXclXFXXXXXXXXXX-150-9000.jpg",
 		"https://img.alicdn.com/tps/TB1l3YmLXXXXXb9XXXXXXXXXXXX-150-9000.jpg",
 		"https://img.alicdn.com/tps/TB1.1fkLXXXXXXrXpXXXXXXXXXX-150-9000.jpg",
-		"https://img.alicdn.com/tps/TB1.1fkLXXXXXXrXpXXXXXXXXXX-150-9000.jpg",
-		"https://img.alicdn.com/tps/TB1heGZLXXXXXaeapXXXXXXXXXX-150-9000.jpg"
+		"https://img.alicdn.com/tps/TB1heGZLXXXXXaeapXXXXXXXXXX-150-9000.jpg",
 	];
 
 	var $marketCells = $(".all-market-content").find(".market-cell");
@@ -282,80 +281,41 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	});
 
 	$(".market-cell").find("a").hover(function() {
-		var x = $(this).find(".market-img");
-		var anim = frameAnimation.anims(x, 60 * 75, 60, 1, 1);
-		anim.start();
-		//		x.animate({
-		//			"background-position-y": "-3975px"
-		//		}, 1000, "easeOutExpo");
-	}, function() {
-//		$(this).find(".market-img").animate({
-//			"background-position-y": "0px"
-//		}, 1000, "easeInExpo");
-	});
-})();
+		var $market = $(this).find(".market-img");
+		
+		(function(width, steps, time) {
+			var step = 1;
+			var speed = time / steps;
 
-window.frameAnimation = {
-	anims: (function() {
-		/*
-		obj=>需要执行背景动画的对象；
-		width:图片的总宽度
-		steps=>需要的帧数；
-		eachtime=>一次完整动画需要的时间；
-		times=>动画执行的次数 0表示无限反复
-		*/
-		return function(obj, width, steps, eachtime, times) {
-			var runing = false;
-			var handler = null; //obj,width,steps,eachtime,times定时器
-			var step = 0; //当前帧
-			var time = 0; //当前第几轮
-			var speed = eachtime * 500 / steps; //间隔时间
-			var oneStepWidth = width / steps;
-
-			function _play() {
-				if(step >= steps) {
-					step = 0;
-					time++;
-				}
-				if(0 == times || time < times) {
-					obj.css('background-position', "0 -" + oneStepWidth * step + "px");
+			function _playForward() {
+				if(step < steps) {
+					$market.css('background-position', "0 -" + width * step + "px");
 					step++;
 				} else {
-					control.stop();
+					clearInterval(handler);
+					handle = null;
 				}
 			}
 
-			var control = {
-				start: function() {
-						if(!runing) {
-							runing = true;
-							step = time = 0;
-							handler = setInterval(_play, speed);
-						}
-						return this;
-					}
+			var handler = setInterval(_playForward, speed);
+		})(75, 60, 1000);
+	}, function() {
+		var $market = $(this).find(".market-img");
+		(function(width, steps, time) {
+			var step = steps - 1;
+			var speed = time / steps;
 
-					,
-				stop: function(restart) {
-					if(runing) {
-						runing = false;
-						if(handler) {
-							clearInterval(handler);
-							handler = null;
-						}
-						if(restart) {
-							obj.css('background-position', '0 0');
-							step = 0;
-							time = 0;
-						}
-					}
-				},
-				dispose: function() {
-					this.stop();
-					//console.log('anim dispose');
+			function _playBackward() {
+				if(step >= 0) {
+					$market.css('background-position', "0 -" + width * step + "px");
+					step--;
+				} else {
+					clearInterval(handler);
+					handle = null;
 				}
-			};
-			return control;
-		}
-	})()
-}
+			}
+
+			var handler = setInterval(_playBackward, speed);
+		})(150, 30, 1000);
+	});
+})();
