@@ -280,29 +280,73 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		})
 	});
 
+	var forwardAnimation = function(obj, width, steps, time) {
+		var step = 1;
+		var speed = time / steps;
+		var handle = null;
+
+		var playForward = {
+			start: function() {
+				function _playForward() {
+					if(step < steps) {
+						obj.css('background-position', "0 -" + width * step + "px");
+						step++;
+					} else {
+						stop();
+					}
+				}
+
+				handler = setInterval(_playForward, speed);
+			},
+			stop: function() {
+				if(handle) {
+					clearInterval(handler);
+					handle = null;
+				}
+			}
+		};
+
+		return playForward;
+	};
+
+	var backwardAnimation = function(obj, width, steps, time) {
+		var step = steps - 1;
+		var speed = time / steps;
+		var handle = null;
+
+		var playBackward = {
+			start: function() {
+				function _playBackward() {
+					if(step >= 0) {
+						obj.css('background-position', "0 -" + width * step + "px");
+						step--;
+					} else {
+						stop();
+					}
+				}
+
+				handler = setInterval(_playBackward, speed);
+			},
+			stop: function() {
+				if(handle) {
+					clearInterval(handler);
+					handle = null;
+				}
+			}
+		}
+
+		return playBackward;
+	}
+
 	$(".market-cell").children("a").hover(function() {
 		var $market = $(this).find(".market-img");
 		var posY = $market.css("backgroundPositionY");
 		var steps = 60 - Math.abs(parseInt(posY)) / 75;
 		var time = 1000 * steps / 60;
 		console.log("_playForward posY=", posY, "steps=", steps, "time=", time);
-		
-		(function(width, steps, time) {
-			var step = 1;
-			var speed = time / steps;
 
-			function _playForward() {
-				if(step < steps) {
-					$market.css('background-position', "0 -" + width * step + "px");
-					step++;
-				} else {
-					clearInterval(handler);
-					handle = null;
-				}
-			}
-
-			var handler = setInterval(_playForward, speed);
-		})(75, steps, time);
+		playForward = forwardAnimation($market, 75, steps, time);
+		playBackward.stop();
 	}, function() {
 		var $market = $(this).find(".market-img");
 		var posY = $market.css("backgroundPositionY");
@@ -310,21 +354,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		var time = 1000 * steps / 60;
 		console.log("_playBackward posY=", posY, "steps=", steps, "time=", time);
 
-		(function(width, steps, time) {
-			var step = steps - 1;
-			var speed = time / steps;
-
-			function _playBackward() {
-				if(step >= 0) {
-					$market.css('background-position', "0 -" + width * step + "px");
-					step--;
-				} else {
-					clearInterval(handler);
-					handle = null;
-				}
-			}
-
-			var handler = setInterval(_playBackward, speed);
-		})(75, steps, time);
+		playBackward = backwardAnimation($market, 75, steps, time);
+		playBackward.start();
 	});
 })();
