@@ -283,25 +283,26 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	var forwardAnimation = function(obj, width, steps, time) {
 		var step = 1;
 		var speed = time / steps;
-		var handle = null;
+		var handler = null;
+
+		function _playForward() {
+			console.log("_playForward step=", step);
+			if(step < steps) {
+				obj.css('background-position', "0 -" + width * step + "px");
+				step++;
+			} else {
+				playForward.stop();
+			}
+		}
 
 		var playForward = {
 			start: function() {
-				function _playForward() {
-					if(step < steps) {
-						obj.css('background-position', "0 -" + width * step + "px");
-						step++;
-					} else {
-						stop();
-					}
-				}
-
 				handler = setInterval(_playForward, speed);
 			},
 			stop: function() {
-				if(handle) {
+				if(handler) {
 					clearInterval(handler);
-					handle = null;
+					handler = null;
 				}
 			}
 		};
@@ -312,25 +313,26 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	var backwardAnimation = function(obj, width, steps, time) {
 		var step = steps - 1;
 		var speed = time / steps;
-		var handle = null;
+		var handler = null;
+
+		function _playBackward() {
+			console.log("_playBackward step=", step);
+			if(step >= 0) {
+				obj.css('background-position', "0 -" + width * step + "px");
+				step--;
+			} else {
+				playBackward.stop();
+			}
+		}
 
 		var playBackward = {
 			start: function() {
-				function _playBackward() {
-					if(step >= 0) {
-						obj.css('background-position', "0 -" + width * step + "px");
-						step--;
-					} else {
-						stop();
-					}
-				}
-
 				handler = setInterval(_playBackward, speed);
 			},
 			stop: function() {
-				if(handle) {
+				if(handler) {
 					clearInterval(handler);
-					handle = null;
+					handler = null;
 				}
 			}
 		}
@@ -338,6 +340,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		return playBackward;
 	}
 
+	var playForward = null, playBackward = null;
 	$(".market-cell").children("a").hover(function() {
 		var $market = $(this).find(".market-img");
 		var posY = $market.css("backgroundPositionY");
@@ -346,7 +349,11 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		console.log("_playForward posY=", posY, "steps=", steps, "time=", time);
 
 		playForward = forwardAnimation($market, 75, steps, time);
-		playBackward.stop();
+		if(playBackward) {
+			playBackward.stop();
+			playBackward = null;
+		}
+		playForward.start();
 	}, function() {
 		var $market = $(this).find(".market-img");
 		var posY = $market.css("backgroundPositionY");
@@ -355,6 +362,10 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		console.log("_playBackward posY=", posY, "steps=", steps, "time=", time);
 
 		playBackward = backwardAnimation($market, 75, steps, time);
+		if(playForward) {
+			playForward.stop();
+			playForward = null;
+		}
 		playBackward.start();
 	});
 })();
