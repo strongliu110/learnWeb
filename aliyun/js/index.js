@@ -109,10 +109,15 @@ $(".product-show-more").on("click", function() {
 				$(this).addClass("active");
 				$(this).find("path").last().css({
 					"stroke-dashoffset": 0
-				})
+				});
 			} else {
 				$(this).removeClass("active");
-				$(this).find("path").last().stop(false, true); // 立即完成动画
+				// 立即完成当前动画
+				var pathElem = $(this).find("path").last();
+				pathElem.stop(false, true);
+				pathElem.css({
+					"stroke-dashoffset": 282.783
+				});
 			}
 		});
 	});
