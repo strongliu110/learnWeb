@@ -72,12 +72,25 @@ $(".product-show-more").on("click", function() {
 	function carousel() {
 		$($contentList[index]).removeClass("active");
 		$($indexList[index]).removeClass("active");
+
+		// 进度动画效果
+		$($indexList[index]).find("path").last().animate({
+			"stroke-dashoffset": 0
+		}, 3000, "linear", function() {
+			$(this).css({
+				"stroke-dashoffset": 282.783
+			});
+		});
+
 		index = (index >= 4) ? -1 : index;
+
 		$($contentList[index + 1]).addClass("active");
 		$($indexList[index + 1]).addClass("active");
+
 		index++;
 	}
 
+	carousel()
 	var interval = setInterval(carousel, 3000);
 
 	// 点选后不再自动轮播
@@ -94,8 +107,12 @@ $(".product-show-more").on("click", function() {
 		$indexList.each(function() {
 			if($(this).index() == index) {
 				$(this).addClass("active");
+				$(this).find("path").last().css({
+					"stroke-dashoffset": 0
+				})
 			} else {
 				$(this).removeClass("active");
+				$(this).find("path").last().stop(false, true); // 立即完成动画
 			}
 		});
 	});
@@ -109,20 +126,22 @@ $(".product-show-more").on("click", function() {
 			"margin-right": "6px"
 		});
 	}
-	
+
 	$(".product-tabs").on("click", "li", function() {
 		var self = this;
 		var index = $(this).index();
 		var originImgs = ["https://img.alicdn.com/tfs/TB1fk0RQVXXXXajXVXXXXXXXXXX-160-160.png",
-		"https://img.alicdn.com/tfs/TB1oCR6QVXXXXXXXFXXXXXXXXXX-160-160.png",
-		"https://img.alicdn.com/tfs/TB1kZRHQVXXXXX.aXXXXXXXXXXX-160-160.png",
-		"https://img.alicdn.com/tfs/TB1UeN.QVXXXXX1XFXXXXXXXXXX-160-160.png",
-		"https://img.alicdn.com/tfs/TB1Qr4RQVXXXXbvXVXXXXXXXXXX-160-160.png"];
-		var activeImgs = ["https://img.alicdn.com/tfs/TB1XhNOQVXXXXXcaXXXXXXXXXXX-160-160.png", 
-		"https://img.alicdn.com/tfs/TB1s_xUQVXXXXXiXVXXXXXXXXXX-160-160.png", 
-		"https://img.alicdn.com/tfs/TB1AO1pQVXXXXX6XXXXXXXXXXXX-160-160.png",
-		"https://img.alicdn.com/tfs/TB1hCRYQVXXXXa7XFXXXXXXXXXX-160-160.png",
-		"https://img.alicdn.com/tfs/TB1Y.p7QVXXXXXHXFXXXXXXXXXX-160-160.png"];
+			"https://img.alicdn.com/tfs/TB1oCR6QVXXXXXXXFXXXXXXXXXX-160-160.png",
+			"https://img.alicdn.com/tfs/TB1kZRHQVXXXXX.aXXXXXXXXXXX-160-160.png",
+			"https://img.alicdn.com/tfs/TB1UeN.QVXXXXX1XFXXXXXXXXXX-160-160.png",
+			"https://img.alicdn.com/tfs/TB1Qr4RQVXXXXbvXVXXXXXXXXXX-160-160.png"
+		];
+		var activeImgs = ["https://img.alicdn.com/tfs/TB1XhNOQVXXXXXcaXXXXXXXXXXX-160-160.png",
+			"https://img.alicdn.com/tfs/TB1s_xUQVXXXXXiXVXXXXXXXXXX-160-160.png",
+			"https://img.alicdn.com/tfs/TB1AO1pQVXXXXX6XXXXXXXXXXXX-160-160.png",
+			"https://img.alicdn.com/tfs/TB1hCRYQVXXXXa7XFXXXXXXXXXX-160-160.png",
+			"https://img.alicdn.com/tfs/TB1Y.p7QVXXXXXHXFXXXXXXXXXX-160-160.png"
+		];
 
 		// 内容元素
 		var $contentElems = $(this).closest(".product-tabs").find(".product-content");
@@ -181,7 +200,7 @@ $(".product-show-more").on("click", function() {
 	var currentItem = Math.abs($slide.position().left) / itemSize + 1;
 	var showItem = 5,
 		moveItem = 5;
-	
+
 	// 向左滚动
 	$(".left-btn").on("click", function() {
 		var nextItem = function() {
@@ -306,7 +325,7 @@ $(".product-show-more").on("click", function() {
 			"background-image": 'url(' + marketImages[index] + ')',
 		})
 	});
-	
+
 	// 前进动画（对象，每幅图片宽度，执行完所需步数，执行完所需时间）
 	var forwardAnimation = function(obj, width, steps, time) {
 		var step = 1;

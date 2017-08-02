@@ -372,9 +372,8 @@
 
 .carousel-banner ul li {
 	float: left;
-	width: 12px;
-	height: 12px;
-	border: 1px rgb(70, 133, 142) solid;
+	width: 16px;
+	height: 16px;
 	text-align: center;
 	margin: 0 5px;
 	cursor: pointer;
@@ -384,10 +383,22 @@
 	background-clip: padding-box;
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding;
+	transition: all .8s ease-out;
 }
 
 .carousel-banner ul li.active {
-	border: 1px #fff solid;
+	/*border: 1px #fff solid;*/
+}
+
+.carousel-banner ul li svg {
+	width: 13px;
+	height: 13px;
+	margin-top: 1.5px;
+}
+
+.carousel-banner ul li svg path:last-child {
+	stroke-dasharray: 282.783, 282.783;
+	stroke-dashoffset: 282.783;
 }
 
 .index-box-row {
