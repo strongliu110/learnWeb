@@ -2,6 +2,26 @@ $(".icon-wrong-thin").on("click", function() {
 	this.closest(".banner-ad-wrapper").remove();
 });
 
+// 搜索框
+(function() {
+	$(".common-topbar-search").find("i").on("click", function() {
+		var $searchElem = $(this).parents(".common-topbar-search");
+		if($searchElem.hasClass("hover")) {
+			$(this).parent().removeClass("hover");
+		} else {
+			$(this).parent().addClass("hover");
+			$(this).parent().find("input").focus();
+		}
+	});
+
+	$(".common-topbar-search").find("input").on("blur", function() {
+		var self = this;
+		setTimeout(function() {
+			$(self).parents(".common-topbar-search").removeClass("hover")
+		}, 100);
+	});
+})();
+
 $(".product-show-more").on("click", function() {
 	var $more = $(".project-more");
 	$more.is(":hidden") ? (
@@ -16,6 +36,7 @@ $(".product-show-more").on("click", function() {
 	}, 300, "linear");
 });
 
+// 导航指示器
 (function() {
 	var $line = $(".common-topbar-nav-list").find(".line");
 	$(".common-topbar-nav-list").on("mousemove", "li", function(ev) {
@@ -24,7 +45,6 @@ $(".product-show-more").on("click", function() {
 			left: $(this).position().left
 		});
 	});
-
 	$(".common-topbar-nav-list").on("mouseleave", function() {
 		$line.css({
 			width: 0
@@ -43,6 +63,7 @@ $(".product-show-more").on("click", function() {
 	});
 })();
 
+// 轮播图
 (function() {
 	var index = 0;
 	var $contentList = $(".index-top-bananer").find("a");
@@ -59,6 +80,7 @@ $(".product-show-more").on("click", function() {
 
 	var interval = setInterval(carousel, 3000);
 
+	// 点选后不再自动轮播
 	$(".carousel-banner").on("click", "li", function() {
 		var index = $(this).index();
 		clearInterval(interval);
@@ -79,23 +101,7 @@ $(".product-show-more").on("click", function() {
 	});
 })();
 
-$(".common-topbar-search").find("i").on("click", function() {
-	var $searchElem = $(this).parents(".common-topbar-search");
-	if($searchElem.hasClass("hover")) {
-		$(this).parent().removeClass("hover");
-	} else {
-		$(this).parent().addClass("hover");
-		$(this).parent().find("input").focus();
-	}
-});
-
-$(".common-topbar-search").find("input").on("blur", function() {
-	var self = this;
-	setTimeout(function() {
-		$(self).parents(".common-topbar-search").removeClass("hover")
-	}, 100);
-});
-
+// 展示内容页
 (function() {
 	var $projectElems = $(".product-content-box").find("a");
 	for(var i = 0; i < $projectElems.length; i++) {
@@ -103,13 +109,22 @@ $(".common-topbar-search").find("input").on("blur", function() {
 			"margin-right": "6px"
 		});
 	}
-})();
-
-(function() {
+	
 	$(".product-tabs").on("click", "li", function() {
 		var self = this;
 		var index = $(this).index();
+		var originImgs = ["https://img.alicdn.com/tfs/TB1fk0RQVXXXXajXVXXXXXXXXXX-160-160.png",
+		"https://img.alicdn.com/tfs/TB1oCR6QVXXXXXXXFXXXXXXXXXX-160-160.png",
+		"https://img.alicdn.com/tfs/TB1kZRHQVXXXXX.aXXXXXXXXXXX-160-160.png",
+		"https://img.alicdn.com/tfs/TB1UeN.QVXXXXX1XFXXXXXXXXXX-160-160.png",
+		"https://img.alicdn.com/tfs/TB1Qr4RQVXXXXbvXVXXXXXXXXXX-160-160.png"];
+		var activeImgs = ["https://img.alicdn.com/tfs/TB1XhNOQVXXXXXcaXXXXXXXXXXX-160-160.png", 
+		"https://img.alicdn.com/tfs/TB1s_xUQVXXXXXiXVXXXXXXXXXX-160-160.png", 
+		"https://img.alicdn.com/tfs/TB1AO1pQVXXXXX6XXXXXXXXXXXX-160-160.png",
+		"https://img.alicdn.com/tfs/TB1hCRYQVXXXXa7XFXXXXXXXXXX-160-160.png",
+		"https://img.alicdn.com/tfs/TB1Y.p7QVXXXXXHXFXXXXXXXXXX-160-160.png"];
 
+		// 内容元素
 		var $contentElems = $(this).closest(".product-tabs").find(".product-content");
 		$contentElems.each(function() {
 			if($(this).index() == index) {
@@ -119,13 +134,15 @@ $(".common-topbar-search").find("input").on("blur", function() {
 			}
 		});
 
+		// 图片切换
 		var $indexList = $(this).closest(".product-tabs").find("li");
 		$indexList.each(function() {
 			if($(this).index() == index) {
 				$(this).addClass("active");
-				//				$(this).find("img").attr("src", "https://img.alicdn.com/tfs/TB1XhNOQVXXXXXcaXXXXXXXXXXX-160-160.png");
+				$(this).find("img").attr("src", activeImgs[index]);
 			} else {
 				$(this).removeClass("active");
+				$(this).find("img").attr("src", originImgs[$(this).index()]);
 			}
 		});
 
@@ -139,15 +156,18 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		$hideTable.find(".indicator-triangle").removeClass("active");
 		$hideTable.find("li").removeClass("active");
 
+		// 指示器位置
 		var $indicatorElem = $(this).parent().find(".indicator-triangle");
 		$indicatorElem.css({
 			left: $(this).position().left + $(this).outerWidth() / 2 - $indicatorElem.outerWidth() / 2
 		});
 	});
 
+	// 默认选中第一个
 	$(".product-tabs").find("li").first().click();
 })();
 
+// 滚动图
 (function() {
 	$(".slide-body").find("li:even .slide-mask").each(function() {
 		$(this).css({
@@ -161,7 +181,8 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	var currentItem = Math.abs($slide.position().left) / itemSize + 1;
 	var showItem = 5,
 		moveItem = 5;
-
+	
+	// 向左滚动
 	$(".left-btn").on("click", function() {
 		var nextItem = function() {
 			if(currentItem == 1) {
@@ -185,6 +206,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		}, 350, function() {
 			currentItem = nextItem;
 			if(currentItem <= 1) {
+				// 置为后5页
 				setTimeout(function() {
 					$slide.css({
 						left: -2816
@@ -195,6 +217,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		});
 	});
 
+	// 向右滚动
 	$(".right-btn").on("click", function() {
 		var nextItem = function() {
 			if(currentItem + moveItem + showItem < totalItem + 1) {
@@ -217,6 +240,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 			left: "-=" + moveWidth + "px"
 		}, 350, function() {
 			currentItem = nextItem;
+			// 置为前5页
 			if(currentItem + moveItem >= totalItem + 1) {
 				setTimeout(function() {
 					$slide.css({
@@ -229,6 +253,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	});
 })();
 
+// 辅助入口弹出效果
 (function() {
 	var timeout = null;
 	var $entry = $(".helper-entry");
@@ -255,6 +280,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	});
 })();
 
+// 回到顶部
 (function() {
 	$(window).scroll(function() {
 		$(document).scrollTop() > 500 ? $("#top-button").show() : $("#top-button").hide();
@@ -264,6 +290,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 	});
 })();
 
+// 雪碧图动画
 (function() {
 	var marketImages = ["https://img.alicdn.com/tps/TB1ceKWLXXXXXaEapXXXXXXXXXX-150-9000.jpg",
 		"https://img.alicdn.com/tps/TB1sd_fLXXXXXX2XFXXXXXXXXXX-150-9000.jpg",
@@ -279,16 +306,19 @@ $(".common-topbar-search").find("input").on("blur", function() {
 			"background-image": 'url(' + marketImages[index] + ')',
 		})
 	});
-
+	
+	// 前进动画（对象，每幅图片宽度，执行完所需步数，执行完所需时间）
 	var forwardAnimation = function(obj, width, steps, time) {
 		var step = 1;
 		var speed = time / steps;
 		var handler = null;
 
 		function _playForward() {
-			console.log("_playForward step=", step);
+			var posY = obj.css("backgroundPositionY");
+			var nextPosY = Math.abs(parseInt(posY) - width);
+			console.log("_playForward nextPosY=", nextPosY, "step=", step);
 			if(step < steps) {
-				obj.css('background-position', "0 -" + width * step + "px");
+				obj.css('background-position', "0 -" + nextPosY + "px");
 				step++;
 			} else {
 				playForward.stop();
@@ -310,15 +340,18 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		return playForward;
 	};
 
+	// 后退动画
 	var backwardAnimation = function(obj, width, steps, time) {
 		var step = steps - 1;
 		var speed = time / steps;
 		var handler = null;
 
 		function _playBackward() {
-			console.log("_playBackward step=", step);
+			var posY = obj.css("backgroundPositionY");
+			var nextPosY = Math.abs(parseInt(posY) + width);
+			console.log("_playBackward nextPosY=", nextPosY, "step=", step);
 			if(step >= 0) {
-				obj.css('background-position', "0 -" + width * step + "px");
+				obj.css('background-position', "0 -" + nextPosY + "px");
 				step--;
 			} else {
 				playBackward.stop();
@@ -340,7 +373,8 @@ $(".common-topbar-search").find("input").on("blur", function() {
 		return playBackward;
 	}
 
-	var playForward = null, playBackward = null;
+	var playForward = null,
+		playBackward = null;
 	$(".market-cell").children("a").hover(function() {
 		var $market = $(this).find(".market-img");
 		var posY = $market.css("backgroundPositionY");
@@ -350,6 +384,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 
 		playForward = forwardAnimation($market, 75, steps, time);
 		if(playBackward) {
+			// 清除反向定时器
 			playBackward.stop();
 			playBackward = null;
 		}
@@ -363,6 +398,7 @@ $(".common-topbar-search").find("input").on("blur", function() {
 
 		playBackward = backwardAnimation($market, 75, steps, time);
 		if(playForward) {
+			// 清除正向定时器
 			playForward.stop();
 			playForward = null;
 		}
