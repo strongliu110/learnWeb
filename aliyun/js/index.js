@@ -39,12 +39,12 @@ $(".product-show-more").on("click", function() {
 // 导航指示器
 (function() {
 	var $line = $(".common-topbar-nav-list").find(".line");
-	$(".common-topbar-nav-list").on("mousemove", "li", throttle(function() {
+	$(".common-topbar-nav-list").on("mousemove", "li", function() {
 		$line.css({
 			width: $(this).outerWidth(),
 			left: $(this).position().left
 		});
-	}, 100));
+	});
 	$(".common-topbar-nav-list").on("mouseleave", function() {
 		$line.css({
 			width: 0
