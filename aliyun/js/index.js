@@ -1,3 +1,4 @@
+// 点击关闭
 $(".icon-wrong-thin").on("click", function() {
 	this.closest(".banner-ad-wrapper").remove();
 });
@@ -22,6 +23,7 @@ $(".icon-wrong-thin").on("click", function() {
 	});
 })();
 
+// 查看全部
 $(".product-show-more").on("click", function() {
 	var $more = $(".project-more");
 	$more.is(":hidden") ? (
@@ -76,7 +78,7 @@ $(".product-show-more").on("click", function() {
 
 		$($contentList[index]).addClass("active");
 		$($indexList[index]).addClass("active");
-		
+
 		// 进度动画效果
 		$($indexList[index]).find("path").last().animate({
 			"stroke-dashoffset": 0
@@ -87,7 +89,7 @@ $(".product-show-more").on("click", function() {
 		});
 
 		index = (index >= 4) ? -1 : index; // 重置
-		
+
 		index++;
 	}
 
@@ -208,12 +210,6 @@ $(".banner-row").on("mousemove", throttle(function(ev) {
 
 // 滚动图
 (function() {
-	$(".slide-body").find("li:even .slide-mask").each(function() {
-		$(this).css({
-			background: "rgba(22, 26, 29, 0.82)"
-		});
-	});
-
 	var $slide = $(".slide-body").find("ul");
 	var itemSize = $($(".slide-body").find("li")[0]).width();
 	var totalItem = $slide.width() / itemSize;
@@ -299,19 +295,10 @@ $(".banner-row").on("mousemove", throttle(function(ev) {
 	$entry.on("mouseenter", function() {
 		timeout && clearTimeout(timeout);
 		$entry.addClass("active");
-		console.log("mouseenter");
 	}).on("mouseleave", function() {
 		timeout = setTimeout(function() {
 			$entry.removeClass("active");
-			console.log("mouseleave");
 		}, 250);
-	});
-
-	$(".entry-panel").on("mouseenter", function() {
-		console.log("mouseenter 1");
-	});
-	$(".entry-panel").on("mouseleave", function() {
-		console.log("mouseleave 1");
 	});
 
 	$entry.on("click", ".panel-close", function() {
@@ -321,11 +308,11 @@ $(".banner-row").on("mousemove", throttle(function(ev) {
 
 // 回到顶部
 (function() {
-	$(window).scroll(function() {
+	$(document).on("scroll", function() {
 		$(document).scrollTop() > 500 ? $("#top-button").show() : $("#top-button").hide();
-	})
+	});
 	$("#top-button").on("click", function() {
-		$(window).scrollTop(0);
+		$(document).scrollTop(0);
 	});
 })();
 
@@ -343,7 +330,7 @@ $(".banner-row").on("mousemove", throttle(function(ev) {
 	$marketCells.each(function(index, elem) {
 		$(this).find(".market-img").css({
 			"background-image": 'url(' + marketImages[index] + ')'
-		})
+		});
 	});
 
 	// 前进动画（对象，每幅图片宽度，执行完所需步数，执行完所需时间）
@@ -445,41 +432,15 @@ $(".banner-row").on("mousemove", throttle(function(ev) {
 	});
 })();
 
-// 在用户动作停止后延迟 delay 再执行回调
-function debounce(fn, delay) {
-	var delay = delay || 200;
-	var timer;
-	return function() {
-		var th = this;
-		var args = arguments;
-		if(timer) {
-			clearTimeout(timer);
+// 背景图滚动
+$(document).on("scroll", function() {
+	(function(elem, positionY) {
+		var distance = $(document).scrollTop() - elem.offset().top;
+		console.log("distance= ", distance);
+		if((distance > 0 && distance < elem.outerHeight()) ||
+			(distance < 0 && Math.abs(distance) < window.screen.availHeight)) {
+			var moveY = (positionY + distance) / 2;
+			$(".defence-bg").css("background-position", "0 " + moveY + "px");
 		}
-		timer = setTimeout(function() {
-			timer = null;
-			fn.apply(th, args);
-		}, delay);
-	};
-}
-
-// 在用户动作时每隔 interval 执行一次回调。
-function throttle(fn, interval) {
-	var last;
-	var timer;
-	var interval = interval || 200;
-	return function() {
-		var th = this;
-		var args = arguments;
-		var now = +new Date();
-		if(last && now - last < interval) {
-			clearTimeout(timer);
-			timer = setTimeout(function() {
-				last = now;
-				fn.apply(th, args);
-			}, interval);
-		} else {
-			last = now;
-			fn.apply(th, args);
-		}
-	}
-}
+	})($(".main-defence"), 0);
+});

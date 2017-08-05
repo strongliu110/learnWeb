@@ -16,8 +16,12 @@ button {
 	border: 0;
 }
 
-body, button, input, select, textarea {
-    font: 12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;
+body,
+button,
+input,
+select,
+textarea {
+	font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', \5b8b\4f53, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	/*chrome、safari*/
 	-moz-osx-font-smoothing: grayscale;
@@ -26,10 +30,10 @@ body, button, input, select, textarea {
 
 a {
 	-webkit-transition: color .2s;
-    -moz-transition: color .2s;
-    -ms-transition: color .2s;
-    -o-transition: color .2s;
-    text-decoration: none;
+	-moz-transition: color .2s;
+	-ms-transition: color .2s;
+	-o-transition: color .2s;
+	text-decoration: none;
 }
 
 .banner-ad-wrapper {
@@ -59,16 +63,31 @@ a {
 }
 
 .main-defence {
+	position: relative;
 	height: 100px;
-    width: 100%;
-    text-align: center;
-    background-color: #00C1DE;
+	width: 100%;
+	text-align: center;
+	background-color: #00C1DE;
 }
 
 .main-defence a {
 	display: block;
 	padding-top: 32px;
-    font-size: 24px;
-    color: #fff;
+	font-size: 24px;
+	color: #fff;
 }
 
+.main-defence .defence-bg {
+	position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+	background-image: url(https://img.alicdn.com/tps/TB1X5DsLXXXXXcsXpXXXXXXXXXX-1440-590.svg);
+	opacity: 0.5;
+	background-position: 0px -85.7313px;
+	background-repeat: no-repeat;
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	background-size: 100%;
+}
