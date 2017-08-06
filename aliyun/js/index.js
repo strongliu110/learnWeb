@@ -399,8 +399,7 @@ $(".banner-row").on("mousemove", throttle(function(ev) {
 		return playBackward;
 	}
 
-	var playForward = null,
-		playBackward = null;
+	// playForward 和 playBackward 应局部传递，否则引起定时器共享会导致动画混乱
 	$(".market-cell").children("a").hover(function() {
 		var $market = $(this).find(".market-img");
 		var posY = $market.css("backgroundPositionY");
@@ -408,11 +407,12 @@ $(".banner-row").on("mousemove", throttle(function(ev) {
 		var time = 1000 * steps / 60;
 		console.log("_playForward posY=", posY, "steps=", steps, "time=", time);
 
-		playForward = forwardAnimation($market, 75, steps, time);
-		if(playBackward) {
+		var playForward = forwardAnimation($market, 75, steps, time);
+		this.playForward = playForward;
+		if(this.playBackward) {
 			// 清除反向定时器
-			playBackward.stop();
-			playBackward = null;
+			this.playBackward.stop();
+			this.playBackward = null;
 		}
 		playForward.start();
 	}, function() {
@@ -422,11 +422,12 @@ $(".banner-row").on("mousemove", throttle(function(ev) {
 		var time = 1000 * steps / 60;
 		console.log("_playBackward posY=", posY, "steps=", steps, "time=", time);
 
-		playBackward = backwardAnimation($market, 75, steps, time);
-		if(playForward) {
+		var playBackward = backwardAnimation($market, 75, steps, time);
+		this.playBackward = playBackward;
+		if(this.playForward) {
 			// 清除正向定时器
-			playForward.stop();
-			playForward = null;
+			this.playForward.stop();
+			this.playForward = null;
 		}
 		playBackward.start();
 	});
