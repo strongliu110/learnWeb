@@ -46,6 +46,7 @@ $(".product-show-more").on("click", function() {
 			width: $(this).outerWidth(),
 			left: $(this).position().left
 		});
+		
 	});
 	$(".common-topbar-nav-list").on("mouseleave", function() {
 		$line.css({
