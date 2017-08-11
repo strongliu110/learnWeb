@@ -46,7 +46,7 @@ $(".product-show-more").on("click", function() {
 			width: $(this).outerWidth(),
 			left: $(this).position().left
 		});
-		
+
 	});
 	$(".common-topbar-nav-list").on("mouseleave", function() {
 		$line.css({
@@ -446,3 +446,15 @@ $(document).on("scroll", function() {
 		}
 	})($(".main-defence"), 0);
 });
+
+$(".common-topbar-all-nav-dropdown").hover(function() {
+	$("body").css({
+		"overflow-x": "hidden",
+		"overflow-y": "hidden"
+	});
+}, function() {
+	$("body").css({
+		"overflow-x": "auto",
+		"overflow-y": "auto"
+	});
+})
